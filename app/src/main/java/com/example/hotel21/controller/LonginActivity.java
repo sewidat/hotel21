@@ -146,6 +146,8 @@ public class LonginActivity extends AppCompatActivity {
     }
 
     public void NewAccountOnClik(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
     }
 }
 
