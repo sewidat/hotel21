@@ -84,9 +84,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/loginbuttom"
             android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
             android:gravity="center|center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp">
 
             <TextView
                 android:id="@+id/remember"
@@ -103,7 +103,8 @@
                 android:id="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                >
 
 
             </CheckBox>
@@ -115,7 +116,7 @@
             android:layout_below="@id/line1"
             android:gravity="center"
             android:minHeight="48dp"
-            android:onClick="NewAccountOnClik"
+            android:onClick="AccountonClik"
             android:text="New Account"
             android:textColor="@color/white"
             android:textSize="20dp"

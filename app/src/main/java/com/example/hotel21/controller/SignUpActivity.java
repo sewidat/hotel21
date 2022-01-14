@@ -23,8 +23,8 @@ import java.util.Map;
 import com.example.hotel21.R;
 
 public class SignUpActivity extends AppCompatActivity {
-        private EditText user_name , passowd ,fisrt_name , last_name ,visa_card,
-    user_age , phone ,email ,age ,gender;
+    private EditText user_name , passowd ,fisrt_name , last_name ,visa_card,
+            user_age , phone ,email ,age ,gender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    public void NewAccountOnClik(View view) {
+    public void NewAccountonClik(View view) {
         String userName = user_name.getText().toString();
         String Password = passowd.getText().toString();
         String firstname = fisrt_name.getText().toString();
@@ -58,20 +58,29 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
     private void addUser(String userName, String Password, String firstname
-     ,String lastname , String visacard , String emaill, String phoneN,String usergender,String user_age) {
+            ,String lastname , String visacard , String emaill, String phoneN,String usergender,String user_age) {
         if(userName.isEmpty()||Password.isEmpty()||firstname.isEmpty()||lastname.isEmpty()||visacard.isEmpty()||
-              emaill.isEmpty()||  phoneN.isEmpty()||user_age.isEmpty()||usergender.isEmpty()){
+                emaill.isEmpty()||  phoneN.isEmpty()||user_age.isEmpty()||usergender.isEmpty()){
             Toast.makeText(this, "Please fill all data Requierd", Toast.LENGTH_SHORT).show();
         }else {
-            String url = "http://10.0.2.2:80/mobileproject/SignUp.php";
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+            String url = "http://10.0.2.2/mobileproject/SignUp.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    if (response.equals("success")) {
+                    System.out.println(response + "-------------");
+                    System.out.println(response.equalsIgnoreCase("success") + "////////////////");
+
+                    if (response.contains("success")) {
+                        System.out.println("on if statment");
+                        Toast.makeText(SignUpActivity.this, "valid log in", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignUpActivity.this, LonginActivity.class);
                         startActivity(intent);
                         finish();
-                    } else if (response.equals("failure")) {
+
+
+                    } else if (response.contains("failure")) {
                         Toast.makeText(SignUpActivity.this, "Invalid log in", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -99,14 +108,14 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
             };
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         }
 
 
 
-        }
-
     }
+
+}
+
 
 
