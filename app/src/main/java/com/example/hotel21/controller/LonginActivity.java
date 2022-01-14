@@ -1,5 +1,6 @@
 package com.example.hotel21.controller;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,13 +33,13 @@ import com.example.hotel21.R;
 public class LonginActivity extends AppCompatActivity {
     EditText username, password;
     private RequestQueue queue;
-    private  SharedPreferences preferences ;
-    private  SharedPreferences.Editor editor;
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
     public static final String NAME = "NAME";
     public static final String FLAG = "FLAG";
     public static final String PASS = "PASS";
     CheckBox chx;
-
+    Context context = this;
 
 
     @Override
@@ -54,9 +55,8 @@ public class LonginActivity extends AppCompatActivity {
     }
 
 
-
     public void AccountonClik(View view) {
-        Intent intent = new Intent(this, AdminMainPage.class);
+        Intent intent = new Intent(context, SignUpActivity.class);
         startActivity(intent);
     }
 
@@ -73,26 +73,26 @@ public class LonginActivity extends AppCompatActivity {
         } else {
 
             String url = "http://10.0.2.2/mobileproject/login.php";
-            StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     System.out.println(response);
 
-                    if(response.contains("success")){
+                    if (response.contains("success")) {
 
-                        Toast.makeText(LonginActivity.this,"malik" + password,Toast.LENGTH_SHORT);
+                        Toast.makeText(LonginActivity.this, "malik" + password, Toast.LENGTH_SHORT);
                         Intent intent = new Intent(LonginActivity.this, SignUpActivity.class);
                         startActivity(intent);
 
-                    }else if(response.contains("failure")){
-                        Toast.makeText(LonginActivity.this,"Invalid user_name" + password,Toast.LENGTH_SHORT);
+                    } else if (response.contains("failure")) {
+                        Toast.makeText(LonginActivity.this, "Invalid user_name" + password, Toast.LENGTH_SHORT);
 
 
                     }
-                    if(chx.isChecked()){
-                        editor.putString(NAME,user_name);
-                        editor.putString(PASS,user_password);
-                        editor.putBoolean(FLAG,true);
+                    if (chx.isChecked()) {
+                        editor.putString(NAME, user_name);
+                        editor.putString(PASS, user_password);
+                        editor.putBoolean(FLAG, true);
                         editor.commit();
                     }
 
@@ -101,19 +101,17 @@ public class LonginActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(LonginActivity.this,"Error MESO" + error.getMessage(),Toast.LENGTH_SHORT);
-
+                    Toast.makeText(LonginActivity.this, "Error MESO" + error.getMessage(), Toast.LENGTH_SHORT);
 
 
                 }
-            })
-            {
+            }) {
                 @Nullable
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String,String> map = new HashMap<>();
-                    map.put("user_name",user_name);
-                    map.put("user_password",user_password);
+                    Map<String, String> map = new HashMap<>();
+                    map.put("user_name", user_name);
+                    map.put("user_password", user_password);
                     return map;
 
                 }
@@ -126,21 +124,18 @@ public class LonginActivity extends AppCompatActivity {
     }
 
     public void remember() {
-        preferences =PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
-        boolean flag = preferences.getBoolean(FLAG,false );
-        if(flag){
-            String name = preferences.getString(NAME,"");
-            String passwordd = preferences.getString(PASS,"");
+        boolean flag = preferences.getBoolean(FLAG, false);
+        if (flag) {
+            String name = preferences.getString(NAME, "");
+            String passwordd = preferences.getString(PASS, "");
             username.setText(name);
             password.setText(passwordd);
             chx.setChecked(true);
 
 
-
-
         }
-
 
 
     }
