@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gradient_start">#6AABA2</color>
+    <color name="gradient_center">#229D8C</color>
+    <color name="gradient_end">#252D2C</color>
+    <color name="head">#FEECE9</color>
+    <color name="mid">#2F3A8F</color>
+    <color name="adminheader">#8946A6</color>
+    <color name="adminbody">#548CFF</color>
+    <color name="addroomheader">#EEEBDD</color>
+    <color name="addroombody">#000000</color>
+    <color name="AddRoomBackGround">#FAEEE7</color>
+
+
 </resources>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/adminbody"
+    tools:context=".AdminMainPage"
+    tools:ignore="MissingDefaultResource">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            >
+            <TextView
+                android:id="@+id/adminpagetextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin Page"
+                android:textSize="22sp"
+                android:textColor="#FFFFFF"
+                />
+            <TextView
+                android:layout_below="@+id/adminpagetextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6 Items"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:textColor="#52BAFF"
+                />
+<!--            <ImageView-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/admin"-->
+<!--                />-->
+
+        </RelativeLayout>
+        <GridLayout
+            android:columnCount="2"
+            android:rowCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+<!--                    <ImageView-->
+<!--                        android:layout_width="85dp"-->
+<!--                        android:layout_height="85dp"-->
+<!--                        android:src="@drawable/adding"-->
+<!--                        android:onClick="addroomOnClik"-->
+<!--                        />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Add Rooms"
+                        android:textSize="18sp"
+                        android:textColor="#6f6f6f"
+
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+
+                >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    >
+<!--                    <ImageView-->
+<!--                        android:layout_width="85dp"-->
+<!--                        android:layout_height="85dp"-->
+<!--                        android:src="@drawable/delete"-->
+<!--                        android:onClick="deleteroomOnClik"-->
+
+<!--                        />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Delete Rooms"
+                        android:textSize="18sp"
+                        android:textColor="#6f6f6f"
+
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16dp">
+<!--                    <ImageView-->
+<!--                        android:layout_width="85dp"-->
+<!--                        android:layout_height="85dp"-->
+<!--                        android:src="@drawable/get"-->
+<!--                        android:onClick="getroomOnClick"-->
+<!--                        />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Get Rooms"
+                        android:textSize="18sp"
+                        android:textColor="#6f6f6f"
+
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+<!--                    <ImageView-->
+<!--                        android:layout_width="85dp"-->
+<!--                        android:layout_height="85dp"-->
+<!--                        android:src="@drawable/updaterooms"-->
+<!--                        android:onClick="updateRoomClick"-->
+<!--                        />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="update Rooms"
+                        android:textSize="18sp"
+                        android:textColor="#6f6f6f"
+
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+
+    </LinearLayout>
+
+</ScrollView>

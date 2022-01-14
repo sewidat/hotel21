@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/addroomheader"
+    tools:context=".AddRoomsActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="248dp"
+            android:src="@drawable/map" />
+        <EditText
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Number from 1 to 10"
+            android:layout_marginTop="30dp"
+            android:id="@+id/IDnumberOfFloor"
+
+            />
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginLeft="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Select the type of Room"
+            android:textStyle="bold"/>
+        <Spinner
+            android:layout_marginTop="10dp"
+            android:id="@+id/IDtypeofRooms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/Rooms"/>
+        </LinearLayout>
+        <EditText
+            android:id="@+id/IDpriceofRoom"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:hint="Price of Room"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Room Information :"
+            android:gravity="center"
+
+            />
+        <EditText
+            android:id="@+id/IdRoomInformations"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            />
+        <EditText
+            android:id="@+id/IdNumberOfBeds"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="Number Of Beds"/>
+    </LinearLayout>
+
+
+</ScrollView>

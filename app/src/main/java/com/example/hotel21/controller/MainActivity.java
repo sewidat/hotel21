@@ -1,8 +1,10 @@
-package com.example.hotel21;
+package com.example.hotel21.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.hotel21.R;
 
 public class MainActivity extends AppCompatActivity {
 

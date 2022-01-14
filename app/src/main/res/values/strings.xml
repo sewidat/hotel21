@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Hotel21</string>
+    <string name="app_name">Hotel</string>
+    <string name="save">Save</string>
+    <string name="age">Age</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="email">Email</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string-array name="Rooms">
+        <item>Single</item>
+        <item>Double</item>
+        <item>Triple</item>
+        <item>Quad</item>
+        <item>Queen</item>
+        <item>King</item>
+        <item>Twin</item>
+    </string-array>
 </resources>
