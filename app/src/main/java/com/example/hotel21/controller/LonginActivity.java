@@ -72,7 +72,7 @@ public class LonginActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
         } else {
 
-            String url = "http://10.0.2.2/mobileproject/login.php";
+            String url = "http://10.0.2.2:81/hotel21/login.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -85,6 +85,8 @@ public class LonginActivity extends AppCompatActivity {
                         startActivity(intent);
 
                     } else if (response.contains("failure")) {
+                        Toast.makeText(LonginActivity.this, "malik" + password, Toast.LENGTH_SHORT);
+
                         Toast.makeText(LonginActivity.this, "Invalid user_name" + password, Toast.LENGTH_SHORT);
 
 

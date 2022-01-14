@@ -2,6 +2,7 @@ package com.example.hotel21.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -65,8 +66,9 @@ public class SignUpActivity extends AppCompatActivity {
         }else {
             RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-            String url = "http://10.0.2.2/mobileproject/SignUp.php";
+            String url = "http://10.0.2.2:81/hotel21/signup.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
                 @Override
                 public void onResponse(String response) {
                     System.out.println(response + "-------------");
