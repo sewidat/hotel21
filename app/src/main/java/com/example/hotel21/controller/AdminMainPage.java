@@ -1,12 +1,13 @@
 package com.example.hotel21.controller;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.hotel21.R;
+
 
 public class AdminMainPage extends AppCompatActivity {
 
@@ -22,7 +23,7 @@ public class AdminMainPage extends AppCompatActivity {
     }
 
     public void deleteroomOnClik(View view) {
-        Intent intent = new Intent(AdminMainPage.this, SignUpActivity.class);
+        Intent intent = new Intent(AdminMainPage.this,SignUpActivity.class);
         startActivity(intent);
     }
 
@@ -31,8 +32,5 @@ public class AdminMainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void updateRoomClick(View view) {
-        Intent intent = new Intent(AdminMainPage.this,SignUpActivity.class);
-        startActivity(intent);
-    }
+   
 }

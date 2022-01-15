@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".controller.RoomView"
+            android:exported="false" />
+        <activity
+            android:name=".controller.RoomActivity"
+            android:exported="false" />
+        <activity
             android:name=".controller.MainScreen"
             android:exported="false" />
         <activity

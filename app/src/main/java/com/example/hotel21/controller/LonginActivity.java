@@ -81,7 +81,7 @@ public class LonginActivity extends AppCompatActivity {
                     if (response.contains("success")) {
 
                         Toast.makeText(LonginActivity.this, "malik" + password, Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(LonginActivity.this, SignUpActivity.class);
+                        Intent intent = new Intent(LonginActivity.this, MainScreen.class);
                         startActivity(intent);
 
                     } else if (response.contains("failure")) {

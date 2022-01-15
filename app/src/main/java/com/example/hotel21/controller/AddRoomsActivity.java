@@ -1,14 +1,14 @@
 package com.example.hotel21.controller;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -17,11 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.hotel21.R;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.hotel21.R;
 
 public class AddRoomsActivity extends AppCompatActivity {
     EditText edtFloorNumber  , edtPriceOfRooms , edtRoomInformation, edtNumberOfBedds ;
@@ -38,32 +38,44 @@ public class AddRoomsActivity extends AppCompatActivity {
         spinner_for_roomtype = findViewById(R.id.IDtypeofRooms);
 
     }
-    public void NewAccountonClik(View view) {
+    public void btnaddRoomOnClik(View view) {
         String Number_of_floor = edtFloorNumber.getText().toString();
         String Price_of_Rooms = edtPriceOfRooms.getText().toString();
         String Room_in_info = edtRoomInformation.getText().toString();
         String Number_of_beds = edtNumberOfBedds.getText().toString();
         String Room_type = spinner_for_roomtype.getSelectedItem().toString();
 
-        addRoom(Number_of_floor,Price_of_Rooms,Room_in_info,Number_of_beds,Room_type);
-
+        addRoom(Number_of_floor,Room_type,Price_of_Rooms,Room_in_info,Number_of_beds);
     }
 
-    private void addRoom(String Number_of_floor, String Price_of_Rooms, String Room_in_info,String Number_of_beds
-    ,String Room_type) {
+
+
+
+
+
+
+    private void addRoom(String Number_of_floor, String Room_type, String Price_of_Rooms,String Room_in_info
+    ,String Number_of_beds) {
         if (Number_of_floor.isEmpty() || Price_of_Rooms.isEmpty() || Room_in_info.isEmpty() || Number_of_beds.isEmpty() ||
                 Room_type.isEmpty()) {
             Toast.makeText(this, "Please fill all data Requierd", Toast.LENGTH_SHORT).show();
         } else {
-            String url = "http://10.0.2.2:80/mobileproject/SignUp.php";
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            System.out.println("data i  nedd  " +Number_of_floor + "-" + Price_of_Rooms + "-" +
+                    "-" +Room_type + "-" + Room_in_info + "-" + Number_of_beds);
+            String url = "http://10.0.2.2:80/mobileproject/AddRoom.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    if (response.equals("success")) {
+                    System.out.println(response);
+                    if (response.contains("success")) {
+                        Toast.makeText(AddRoomsActivity.this, "Added Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AddRoomsActivity.this, LonginActivity.class);
                         startActivity(intent);
                         finish();
-                    } else if (response.equals("failure")) {
+
+
+                    } else if (response.contains("failure")) {
                         Toast.makeText(AddRoomsActivity.this, "Invalid  Process", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -82,14 +94,15 @@ public class AddRoomsActivity extends AppCompatActivity {
                     data.put("day_price", Price_of_Rooms);
                     data.put("room_information", Room_in_info);
                     data.put("number_of_bed", Number_of_beds);
-
-
                     return data;
                 }
 
             };
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         }
 
-    }}
+    }
+
+
+
+}
