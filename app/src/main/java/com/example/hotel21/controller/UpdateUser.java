@@ -21,12 +21,9 @@ public class UpdateUser extends AppCompatActivity {
         setContentView(R.layout.activity_update_user);
         cardView = findViewById(R.id.user_details);
 
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, UserDetailsUpdate.class);
+        cardView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, UserDetailsUpdate.class);
 
-            }
         });
     }
 }

@@ -79,10 +79,10 @@ public class LonginActivity extends AppCompatActivity {
                 public void onResponse(String response) {
                     System.out.println(response  + "----mes");
 
-                    if(response.contains("successC")){
+                    if(response.contains("successc")){
 
                         Toast.makeText(LonginActivity.this,"malik" + password,Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(LonginActivity.this, SignUpActivity.class);
+                        Intent intent = new Intent(LonginActivity.this, MainScreen.class);
                         startActivity(intent);
 
                     }else if(response.contains("successA")){

@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainScreen extends AppCompatActivity {
-    private Context context = this;
     RecyclerView roomsRecyclerView;
     List<Room> roomList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        RoomAdapter roomAdapter = new RoomAdapter(roomList);
+        RoomAdapter roomAdapter = new RoomAdapter(this, roomList);
         roomsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         roomsRecyclerView.setAdapter(roomAdapter);
     }
@@ -55,7 +55,4 @@ public class MainScreen extends AppCompatActivity {
         roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
     }
 
-    public Context getContext() {
-        return this.context;
-    }
 }
