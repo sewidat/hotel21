@@ -12,9 +12,9 @@
         android:id="@+id/user_details"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_margin="15dp"
         android:hapticFeedbackEnabled="true"
         app:cardBackgroundColor="@color/head"
-        android:layout_margin="15dp"
 
 
         >
@@ -23,11 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="15dp"
-            >
+            android:padding="15dp">
 
             <ImageView
-                android:id="@+id/lock"
+                android:id="@+id/lock1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -36,10 +35,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toEndOf="@id/lock"
+                android:layout_toEndOf="@id/lock1"
                 android:gravity="center"
                 android:text="Personal"
-                android:textColor="#616161"></TextView>
+                android:textColor="#616161" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -48,10 +47,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/user_details"
-        android:hapticFeedbackEnabled="true"
-        app:cardBackgroundColor="@color/head"
         android:layout_margin="15dp"
-        >
+        android:hapticFeedbackEnabled="true"
+        app:cardBackgroundColor="@color/head">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -60,7 +58,7 @@
             android:padding="15dp">
 
             <ImageView
-                android:id="@+id/lock"
+                android:id="@+id/lock2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -69,9 +67,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toEndOf="@id/lock"
+                android:layout_toEndOf="@id/lock2"
                 android:gravity="center"
-                android:text="Security"></TextView>
+                android:text="Security"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -80,10 +78,9 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/security"
-        android:hapticFeedbackEnabled="true"
-        app:cardBackgroundColor="@color/head"
         android:layout_margin="15dp"
-        >
+        android:hapticFeedbackEnabled="true"
+        app:cardBackgroundColor="@color/head">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -92,7 +89,7 @@
             android:padding="15dp">
 
             <ImageView
-                android:id="@+id/lock"
+                android:id="@+id/lock3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -101,9 +98,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_toEndOf="@id/lock"
+                android:layout_toEndOf="@id/lock3"
                 android:gravity="center"
-                android:text="Payment"></TextView>
+                android:text="Payment"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

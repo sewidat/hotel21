@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="120dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
         android:contentDescription="TODO"
         app:layout_constraintBottom_toTopOf="@+id/room_details_grid"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,14 +22,14 @@
     <GridView
         android:id="@+id/room_details_grid"
         android:layout_width="409dp"
-        android:layout_height="485dp"
+        android:layout_height="200dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:numColumns="2"
         android:paddingTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,5 +37,21 @@
 
 
     </GridView>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="34dp"
+        android:text="Reserve"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/room_details_grid"
+        android:onClick="reserve"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

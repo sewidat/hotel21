@@ -14,6 +14,14 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".controller.MainActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.Project.NoActionBar" />
+        <activity
+            android:name=".controller.ReservePage"
+            android:exported="false" />
+        <activity
             android:name=".controller.RoomView"
             android:exported="false" />
         <activity
