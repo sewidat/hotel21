@@ -28,6 +28,10 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
         this.context = context;
     }
 
+    public RoomAdapter(List<Room> roomList) {
+        this.roomList = roomList;
+    }
+
     @NonNull
     @Override
     public RoomVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

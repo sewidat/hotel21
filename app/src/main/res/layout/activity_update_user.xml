@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:layout_margin="1dp"
     android:background="@color/head"
-    tools:context=".controller.UpdateUser">
+    tools:context=".controller.ui.user_details.UserDetailsUpdateFragment"
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/user_details"
