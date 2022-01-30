@@ -25,6 +25,8 @@
         <entry key="app/src/main/res/layout/activity_room.xml" value="0.3375" />
         <entry key="app/src/main/res/layout/activity_room2.xml" value="0.353125" />
         <entry key="app/src/main/res/layout/activity_room_view.xml" value="0.353125" />
+        <entry key="app/src/main/res/layout/activity_update_payment.xml" value="0.3536458333333333" />
+        <entry key="app/src/main/res/layout/activity_update_security_details.xml" value="0.17198581560283688" />
         <entry key="app/src/main/res/layout/activity_update_user.xml" value="0.29257246376811596" />
         <entry key="app/src/main/res/layout/activity_user_details_update.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.17708333333333334" />
