@@ -1,15 +1,20 @@
 package com.example.hotel21.controller;
 
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
 import com.example.hotel21.R;
+import com.example.hotel21.controller.ui.home.HomeFragment;
 import com.example.hotel21.databinding.ActivityMainBinding;
+import com.example.hotel21.model.room.Room;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_baseline_sort_24);
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_sort_24);
         binding.appBarMain.toolbar.setOverflowIcon(drawable);
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
@@ -53,10 +58,28 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                HomeFragment.roomList.sort(Room::compareToL2H);
+                break;
+            case R.id.action_settings2:
+                HomeFragment.roomList.sort(Room::compareToH2L);
+                break;
+            default:
+                break;
+        }
+        HomeFragment.updateAdapter();
+        return false;
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.hotel21.controller.ui.gallery.GalleryFragment"
+        android:name="com.example.hotel21.controller.ui.reserved_rooms.GalleryFragment"
         android:label="Rooms"
         tools:layout="@layout/fragment_gallery" />
 

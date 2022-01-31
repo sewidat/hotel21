@@ -1,4 +1,4 @@
-package com.example.hotel21.controller.ui.gallery;
+package com.example.hotel21.controller.ui.reserved_rooms;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

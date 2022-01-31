@@ -1,4 +1,4 @@
-package com.example.hotel21.controller.ui.gallery;
+package com.example.hotel21.controller.ui.reserved_rooms;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
