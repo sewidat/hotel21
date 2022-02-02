@@ -1,15 +1,15 @@
 package com.example.hotel21.model.room;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Room  {
+public class Room {
     int room_id;
     int floor_number;
     String type;
@@ -31,6 +31,7 @@ public class Room  {
         }
 
     }
+
     public int compareToH2L(Room o) {
         if (price == o.price) {
             return 0;
@@ -43,4 +44,6 @@ public class Room  {
         }
 
     }
+
+
 }

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -21,6 +22,8 @@ import lombok.var;
 public class RoomView extends AppCompatActivity {
     ImageView imageView;
     GridView gridView;
+    int roomID;
+    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,10 @@ public class RoomView extends AppCompatActivity {
         gridView = findViewById(R.id.room_details_grid);
         imageView = findViewById(R.id.room_detail_image);
         Intent intent = getIntent();
+        roomID = Integer.parseInt(intent.getStringExtra("roomID"));
+        position = intent.getIntExtra("position", 0);
         int imageID = intent.getIntExtra("image", R.drawable.hotel);
+        Log.d("roomId", roomID + "");
         imageView.setImageResource(imageID);
         ArrayList<RoomDetail> roomDetails = new ArrayList<>();
         roomDetails.add(new RoomDetail("detail1", R.drawable.ic_baseline_info_24));
@@ -43,7 +49,9 @@ public class RoomView extends AppCompatActivity {
     }
 
     public void reserve(View view) {
-        Intent intent = new Intent(this,ReservePage.class);
+        Intent intent = new Intent(this, ReservePage.class);
+        intent.putExtra("roomID", roomID);
+        intent.putExtra("position", position);
         startActivity(intent);
     }
 }

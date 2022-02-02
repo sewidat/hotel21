@@ -20,7 +20,7 @@ import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
     private static final String TAG = "RoomAdapter";
-    List<Room> roomList;
+    public static List<Room> roomList;
     Context context;
 
     public RoomAdapter(Context context, List<Room> roomList) {
@@ -50,6 +50,8 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, RoomView.class);
             intent.putExtra("image", R.drawable.map);
+            intent.putExtra("roomID", roomList.get(position).getRoom_id() + "");
+            intent.putExtra("position", position);
             context.startActivity(intent);
         });
 
