@@ -31,7 +31,6 @@ public class GalleryFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-//        roomList = new ArrayList<>();
         roomAdapter = new RoomAdapter(container.getContext(), roomList);
         View view = inflater.inflate(R.layout.activity_main_screen, container, false);
         recyclerView = view.findViewById(R.id.rooms_recycler_view);
