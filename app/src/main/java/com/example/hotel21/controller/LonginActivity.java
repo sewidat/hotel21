@@ -1,6 +1,5 @@
 package com.example.hotel21.controller;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,14 +20,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.example.hotel21.R;
+import com.example.hotel21.controller.AdminController.AdminMainPage;
+
+import com.example.hotel21.controller.AdminController.AdminaddServices;
+import com.example.hotel21.controller.EmployeeController.EmployeeMainPage;
+import com.example.hotel21.model.user.User;
 
 public class LonginActivity extends AppCompatActivity {
     EditText username, password;
@@ -39,6 +40,7 @@ public class LonginActivity extends AppCompatActivity {
     public static final String FLAG = "FLAG";
     public static final String PASS = "PASS";
     CheckBox chx;
+    ArrayList<User> users = new ArrayList<>();
 
 
 
@@ -46,34 +48,40 @@ public class LonginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ogin);
+
         username = findViewById(R.id.Username);
         password = findViewById(R.id.Password);
         queue = Volley.newRequestQueue(this);
         chx = findViewById(R.id.checkbox);
         remember();
 
+
     }
 
 
 
     public void AccountonClik(View view) {
-        Intent intent = new Intent(this, AdminMainPage.class);
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
 
-    static boolean isAllowed = false;
 
     public void loginonClick(View view) {
         String user_name = username.getText().toString();
         String user_password = password.getText().toString();
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        SharedPreferences sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("user_name",user_name);
+        editor.commit();
+
 
 
         if (user_name.isEmpty() || user_password.isEmpty()) {
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
         } else {
 
-            String url = "http://10.0.2.2:81/hotel21/login.php";
+            String url = "http://10.0.2.2:80/hotel21/login.php";
             StringRequest stringRequest  = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -88,13 +96,14 @@ public class LonginActivity extends AppCompatActivity {
                     }else if(response.contains("successA")){
                         Toast.makeText(LonginActivity.this,"hello Admin" ,Toast.LENGTH_SHORT);
                         System.out.println("hello admin");
-                        Intent intent = new Intent(LonginActivity.this, AddRoomsActivity.class);
+                        Intent intent = new Intent(LonginActivity.this, AdminMainPage.class);
                         startActivity(intent);
 
 
                     }else if(response.contains("successE")){
+
                         Toast.makeText(LonginActivity.this,"hello employee" ,Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(LonginActivity.this, AdminMainPage.class);
+                        Intent intent = new Intent(LonginActivity.this, EmployeeMainPage.class);
                         startActivity(intent);
 
                     }else if(response.contains("failure")){
@@ -152,9 +161,6 @@ public class LonginActivity extends AppCompatActivity {
             username.setText(name);
             password.setText(passwordd);
             chx.setChecked(true);
-
-
-
 
         }
 

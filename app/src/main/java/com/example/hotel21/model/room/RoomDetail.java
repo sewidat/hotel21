@@ -8,5 +8,4 @@ import lombok.Data;
 public class RoomDetail {
     private String detail;
     private int iconID;
-
 }

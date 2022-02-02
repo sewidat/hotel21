@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context=".controller.AdminController.ServicePageForAdmin">
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <EditText
+                android:id="@+id/service_descriptionID"
+                android:layout_width="wrap_content"
+                android:hint="Service_Description"
+                android:layout_height="120dp"
+                android:layout_marginTop="50dp"
+                />
+
+            <EditText
+                android:id="@+id/service_priceID"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="50dp"
+                android:hint="Service_price"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/adminaddservbtn"
+                android:text="Insert"
+                android:onClick="addservicesonbtn"
+                />
+            </LinearLayout>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_column="0"
+            android:layout_span="1"
+            android:text="ServiceID"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"/>
+        <TextView
+            android:layout_column="1"
+            android:layout_span="6"
+            android:text="Service description"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:background="#c0c0c0"/>
+
+        <TextView
+            android:layout_column="2"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="Service Price"
+            android:textStyle="bold" />
+
+
+    </TableRow>
+    <ListView
+
+            android:id="@+id/listview3"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_below="@+id/linearForbtns"
+             />
+    <TableRow>
+        <Button
+            android:layout_span="8"
+            tools:context=".model.database.Database"
+        android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/listview3"
+            android:layout_marginTop="10dp"
+            android:text="Refresh"
+            android:onClick="RefreshListviewforadminbtn"
+            />
+    </TableRow>
+
+</TableLayout>

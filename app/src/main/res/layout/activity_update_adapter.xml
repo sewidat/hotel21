@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context=".controller.EmployeeController.UpdateReservitionEmp_Acitivty">
+
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:layout_column="0"
+            android:layout_span="2"
+            android:padding="10dp"
+            android:id="@+id/Up_reserve_text_view"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="1"
+            android:layout_span="2"
+            android:padding="10dp"
+            android:id="@+id/Up_roomID_text_view"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="2"
+            android:layout_span="2"
+            android:padding="10dp"
+            android:id="@+id/Up_StartDate_text_view"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="3"
+            android:layout_span="2"
+            android:padding="10dp"
+            android:id="@+id/Up_EndDate_text_view"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+
+</TableLayout>

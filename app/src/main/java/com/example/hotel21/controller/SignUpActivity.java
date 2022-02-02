@@ -22,10 +22,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.hotel21.R;
+import com.example.hotel21.model.user.IUserDa;
+import com.example.hotel21.model.user.User;
+import com.example.hotel21.model.user.UserFactory;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText user_name , passowd ,fisrt_name , last_name ,visa_card,
             user_age , phone ,email ,age ,gender;
+    User user = new User();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,8 +58,9 @@ public class SignUpActivity extends AppCompatActivity {
         String Age = age.getText().toString();
         String emaill = email.getText().toString();
         String usergender = gender.getText().toString();
-        addUser(userName,Password,firstname
-                ,lastname,visacard,emaill,phoneN,usergender,userage);
+        UserFactory userFactory = new UserFactory();
+        IUserDa iUserDa = userFactory.getModel();
+        iUserDa.addUser(SignUpActivity.this,userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Age);
 
     }
     private void addUser(String userName, String Password, String firstname
@@ -111,9 +116,9 @@ public class SignUpActivity extends AppCompatActivity {
 
             };
             requestQueue.add(stringRequest);
+
         }
-
-
+        User user = new User(userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Integer.parseInt(user_age));
 
     }
 

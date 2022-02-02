@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context=".controller.AdminController.AdminRemoveEmployee">
+
+
+
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_column="0"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="Employee_id"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="1"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="first_name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="2"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="Last_name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="3"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="Remove_Employee"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+       <androidx.appcompat.widget.SearchView
+           android:id="@+id/searchID"
+           app:queryHint="Search by ID"
+           app:iconifiedByDefault="false"
+           android:layout_margin="2dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+
+
+           >
+
+
+       </androidx.appcompat.widget.SearchView>
+
+    </TableRow>
+
+    <ListView
+
+        android:id="@+id/Delete_listviewForyEmployees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+
+</TableLayout>

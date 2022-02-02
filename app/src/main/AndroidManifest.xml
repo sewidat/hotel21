@@ -14,8 +14,47 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".controller.RoomView"
-            android:exported="false" />
+            android:name=".controller.AdminController.EmployeesListviewAdpater"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.AdminRemoveEmployee"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.AdminaddEmployees"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.AdminManageEmployee"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.AdminMainPage"
+            android:exported="true" />
+        <activity
+            android:name=".controller.EmployeeController.UpdateAdapter"
+            android:exported="true" />
+        <activity
+            android:name=".controller.EmployeeController.UpdateAdapterEmployee"
+            android:exported="true" />
+        <activity
+            android:name=".controller.EmployeeController.UpdateReservitionEmp_Acitivty"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.ServicePageForAdmin"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.ServicesAdapter"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.AdminaddServices"
+            android:exported="true" />
+        <activity
+            android:name=".controller.EmployeeController.Employee1Adapter"
+            android:exported="true" />
+        <activity
+            android:name=".controller.EmployeeController.EmployeeAdapter"
+            android:exported="true" />
+        <activity
+            android:name=".controller.EmployeeController.EmployeeMainPage"
+            android:exported="true" />
         <activity
             android:name=".controller.RoomActivity"
             android:exported="false" />
@@ -23,20 +62,8 @@
             android:name=".controller.MainScreen"
             android:exported="false" />
         <activity
-            android:name=".controller.UpdatePayment"
-            android:exported="false" />
-        <activity
             android:name=".controller.UpdateSecurityDetails"
             android:exported="false" />
-        <activity
-            android:name=".controller.UserDetailsUpdate"
-            android:exported="false" />
-        <activity
-            android:name=".controller.UpdateUser"
-            android:exported="false" />
-        <activity
-            android:name=".controller.MainActivity"
-            android:exported="true" />
         <activity
             android:name=".controller.SignUpActivity"
             android:exported="true" />

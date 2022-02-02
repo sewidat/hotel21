@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_animation"
+    tools:context=".controller.AdminController.AdminaddEmployees"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/signinPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:gravity="center"
+            android:text="New Employee"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/Username_Emp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signinPage"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"
+            android:hint="User Name"
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/Password_Emp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Username_Emp"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_info_24"
+            android:drawablePadding="20dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+
+
+
+        <Button
+            android:id="@+id/signupbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Password_Emp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/material_on_primary_emphasis_medium"
+            android:text="Add emplyoee"
+            android:onClick="NewEmployeeClik"
+            android:textColor="@color/black"></Button>
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/signupbutton"/>
+    </RelativeLayout>
+
+
+</ScrollView>
