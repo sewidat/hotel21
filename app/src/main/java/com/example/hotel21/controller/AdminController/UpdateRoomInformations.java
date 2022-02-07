@@ -14,8 +14,8 @@ import com.example.hotel21.model.room.Room;
 import com.example.hotel21.model.room.RoomFactory;
 
 public class UpdateRoomInformations extends AppCompatActivity {
-    private EditText room_id , floor_number ,type , price  ,room_info,
-            numberofbeds ;
+    private EditText room_id, floor_number, type, price, room_info,
+            numberofbeds;
 
 
     @Override
@@ -34,20 +34,20 @@ public class UpdateRoomInformations extends AppCompatActivity {
 
     public void NewAccountonClik(View view) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int room_idd= preferences.getInt("room_id", 0);
-        int floor_numberr= preferences.getInt("floor_number", 0);
-        String typee  = preferences.getString("type", "");
-        String info = preferences.getString("info","");
-        int pricee = preferences.getInt("price",0);
-        int numberofbed = preferences.getInt("number_of_bed",0);
+        int room_idd = preferences.getInt("room_id", 0);
+        int floor_numberr = preferences.getInt("floor_number", 0);
+        String typee = preferences.getString("type", "");
+        String info = preferences.getString("info", "");
+        int pricee = preferences.getInt("price", 0);
+        int numberofbed = preferences.getInt("number_of_bed", 0);
         room_id.setText(String.valueOf(room_idd));
         floor_number.setText(String.valueOf(floor_numberr));
         type.setText(typee);
         price.setText(info);
         room_info.setText(String.valueOf(pricee));
         numberofbeds.setText(String.valueOf(numberofbed));
-        Room room = new Room(room_idd,floor_numberr,typee, pricee,info,numberofbed);
-        RoomFactory roomFactory = new RoomFactory() ;
+     Room room = new Room(room_idd,floor_numberr,typee, pricee,info,numberofbed);
+        RoomFactory roomFactory = new RoomFactory();
         IRoomDa iRoomDa = roomFactory.getModel();
         iRoomDa.updateRooms(room, UpdateRoomInformations.this);
     }

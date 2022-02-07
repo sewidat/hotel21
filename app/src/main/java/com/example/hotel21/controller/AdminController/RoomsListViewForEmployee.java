@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.SignUpActivity;
+import com.example.hotel21.controller.common.SignUpActivity;
 import com.example.hotel21.model.room.IRoomDa;
 import com.example.hotel21.model.room.RoomDa;
 import com.example.hotel21.model.room.RoomFactory;

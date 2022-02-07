@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.LonginActivity;
+import com.example.hotel21.controller.common.LonginActivity;
 import com.example.hotel21.model.service.IServiceDa;
 import com.example.hotel21.model.service.ServiceFactory;
 

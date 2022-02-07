@@ -7,8 +7,8 @@ import android.widget.ListView;
 import com.example.hotel21.controller.AdminController.AdminRemoveEmployee;
 import com.example.hotel21.controller.AdminController.AdminaddEmployees;
 import com.example.hotel21.controller.EmployeeController.UpdateReservitionEmp_Acitivty;
-import com.example.hotel21.controller.LonginActivity;
-import com.example.hotel21.controller.SignUpActivity;
+import com.example.hotel21.controller.common.LonginActivity;
+import com.example.hotel21.controller.common.SignUpActivity;
 
 import java.util.List;
 

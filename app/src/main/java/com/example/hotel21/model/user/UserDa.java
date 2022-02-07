@@ -1,6 +1,17 @@
 package com.example.hotel21.model.user;
 
 
+import android.content.SharedPreferences;
+import android.widget.CheckBox;
+import android.widget.ListView;
+
+import com.example.hotel21.controller.AdminController.AdminRemoveEmployee;
+import com.example.hotel21.controller.AdminController.AdminaddEmployees;
+import com.example.hotel21.controller.EmployeeController.UpdateReservitionEmp_Acitivty;
+import com.example.hotel21.controller.common.LonginActivity;
+import com.example.hotel21.controller.common.SignUpActivity;
+import com.example.hotel21.model.database.Database;
+
 import java.util.List;
 
 public class UserDa implements IUserDa {
@@ -30,7 +41,7 @@ public class UserDa implements IUserDa {
     }
 
     @Override
-    public void Updatedatafromemployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty,String username, String Password, String visacard, String emaill, String phoneN, String user_age) {
+    public void Updatedatafromemployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, String username, String Password, String visacard, String emaill, String phoneN, String user_age) {
         Database database = Database.getInstance();
         database.Updatedatafromemployee(updateReservitionEmp_acitivty,username,Password,visacard,emaill, phoneN,user_age);
     }

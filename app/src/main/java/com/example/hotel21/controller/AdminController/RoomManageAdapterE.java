@@ -18,8 +18,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.LonginActivity;
-import com.example.hotel21.controller.SignUpActivity;
+import com.example.hotel21.controller.common.LonginActivity;
+import com.example.hotel21.controller.common.SignUpActivity;
 import com.example.hotel21.model.database.Database;
 import com.example.hotel21.model.reserve.IReserveDa;
 import com.example.hotel21.model.reserve.ReserveFactory;

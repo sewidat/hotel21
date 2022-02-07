@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.common;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +22,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.hotel21.R;
+import com.example.hotel21.model.user.IUserDa;
+import com.example.hotel21.model.user.UserFactory;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText user_name , passowd ,fisrt_name , last_name ,visa_card,
@@ -115,11 +117,11 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         }
-        User user = new User(userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Integer.parseInt(user_age));
+//        User user = new User(userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Integer.parseInt(user_age));
 
     }
 
-}
+
 
 
 

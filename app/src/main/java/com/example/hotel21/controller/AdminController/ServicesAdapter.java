@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.LonginActivity;
+import com.example.hotel21.controller.common.LonginActivity;
 import com.example.hotel21.model.service.Service;
 
 import java.util.ArrayList;
