@@ -14,7 +14,16 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".controller.AdminController.EmployeesListviewAdpater"
+            android:name=".controller.AdminController.UpdateRoomInformations"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.RoomsListViewForEmployee"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.AdminManageRooms"
+            android:exported="true" />
+        <activity
+            android:name=".controller.AdminController.AddRoomsActivity"
             android:exported="true" />
         <activity
             android:name=".controller.AdminController.AdminRemoveEmployee"
@@ -29,28 +38,10 @@
             android:name=".controller.AdminController.AdminMainPage"
             android:exported="true" />
         <activity
-            android:name=".controller.EmployeeController.UpdateAdapter"
-            android:exported="true" />
-        <activity
-            android:name=".controller.EmployeeController.UpdateAdapterEmployee"
-            android:exported="true" />
-        <activity
             android:name=".controller.EmployeeController.UpdateReservitionEmp_Acitivty"
             android:exported="true" />
         <activity
             android:name=".controller.AdminController.ServicePageForAdmin"
-            android:exported="true" />
-        <activity
-            android:name=".controller.AdminController.ServicesAdapter"
-            android:exported="true" />
-        <activity
-            android:name=".controller.AdminController.AdminaddServices"
-            android:exported="true" />
-        <activity
-            android:name=".controller.EmployeeController.Employee1Adapter"
-            android:exported="true" />
-        <activity
-            android:name=".controller.EmployeeController.EmployeeAdapter"
             android:exported="true" />
         <activity
             android:name=".controller.EmployeeController.EmployeeMainPage"

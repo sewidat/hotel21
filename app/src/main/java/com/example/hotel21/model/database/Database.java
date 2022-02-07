@@ -25,11 +25,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.AddRoomsActivity;
+import com.example.hotel21.controller.AdminController.AddRoomsActivity;
 import com.example.hotel21.controller.AdminController.AdminRemoveEmployee;
 import com.example.hotel21.controller.AdminController.AdminaddEmployees;
 import com.example.hotel21.controller.AdminController.EmployeesListviewAdpater;
 import com.example.hotel21.controller.AdminController.AdminMainPage;
+import com.example.hotel21.controller.AdminController.RoomManageAdapterE;
+import com.example.hotel21.controller.AdminController.RoomsListViewForEmployee;
+import com.example.hotel21.controller.AdminController.UpdateRoomInformations;
 import com.example.hotel21.controller.EmployeeController.EmployeeAdapter;
 import com.example.hotel21.controller.EmployeeController.EmployeeMainPage;
 import com.example.hotel21.controller.EmployeeController.UpdateAdapter;
@@ -40,6 +43,7 @@ import com.example.hotel21.controller.AdminController.ServicesAdapter;
 import com.example.hotel21.controller.SignUpActivity;
 import com.example.hotel21.controller.EmployeeController.EmployeeListViewItem;
 import com.example.hotel21.model.reserve.Reserve;
+import com.example.hotel21.model.room.Room;
 import com.example.hotel21.model.service.Service;
 import com.example.hotel21.model.user.User;
 
@@ -50,7 +54,9 @@ public class Database extends AppCompatActivity {
     EmployeeAdapter adapter;
     ServicesAdapter servicesAdapter;
     UpdateAdapter updateAdapter;
-      EmployeesListviewAdpater employeesListviewAdater;
+    EmployeesListviewAdpater employeesListviewAdater;
+    RoomManageAdapterE roomManageAdapterE;
+     public  static  ArrayList<Room> arrayList = new ArrayList<>();
 
 
     private static Database single_instance = null;
@@ -644,6 +650,75 @@ public class Database extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
+    public void getRoomsForAdmin(RoomsListViewForEmployee roomsListViewForEmployee, ListView listView) {
+        RequestQueue queue;
+        queue = Volley.newRequestQueue(roomsListViewForEmployee.getApplicationContext());
+        String url = "http://10.0.2.2/hotel21/getRoomsForAdmin.php";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
+                null, response -> {
+            ArrayList<Room> items = new ArrayList<>();
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    System.out.println(response);
+
+                    JSONObject obj = response.getJSONObject(i);
+                    arrayList.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"),obj.getInt("day_price"),obj.getString("room_information"),obj.getInt("number_of_bed")));
+
+                    System.out.println("we are done");
+                } catch (JSONException exception) {
+                    Log.d("Error", exception.toString());
+                }
+            }
+
+            roomManageAdapterE = new RoomManageAdapterE(roomsListViewForEmployee.getApplicationContext(), R.layout.activity_room_manage_adapter_e, arrayList);
+            listView.setAdapter(roomManageAdapterE);
+
+        }, error -> System.out.println(error.getMessage()));
+
+        queue.add(request);
+
+    }
+
+    public void updateRooms(Room user, UpdateRoomInformations updateRoomInformations) {
+
+        String url = "http://10.0.2.2/hotel21/updateUser.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if (response.equals("success")) {
+                    Toast.makeText(updateRoomInformations, "Update Done successfully.", Toast.LENGTH_SHORT).show();
+                } else if (response.equals("failure")) {
+                    Toast.makeText(updateRoomInformations, "Invalid Update !!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(updateRoomInformations, error.toString().trim(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("room_id", String.valueOf(user.getRoom_id()));
+                data.put("floor_number", String.valueOf(user.getFloor_number()));
+                data.put("type", user.getType());
+                data.put("day_price", String.valueOf(user.getPrice()));
+                data.put("room_information", user.getRoom_information());
+                data.put("number_of_bed", String.valueOf(user.getNumber_of_bed()));
+
+
+                return data;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(updateRoomInformations.getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
+
 
     }
 

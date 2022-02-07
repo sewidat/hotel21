@@ -1,23 +1,18 @@
 package com.example.hotel21.model.room;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 
 public class Room {
     int room_id ;
     int floor_number ;
     String type ;
-    double price ;
+    int price ;
     boolean is_available;
     String room_information ;
     int  number_of_bed ;
 
 
 
-    public Room(int room_id, int floor_number, String type, double price , boolean is_available, String room_information, int number_of_bed) {
+    public Room(int room_id, int floor_number, String type, int price , boolean is_available, String room_information, int number_of_bed) {
         this.room_id = room_id;
         this.floor_number = floor_number;
         this.type = type ;
@@ -26,6 +21,26 @@ public class Room {
         this.room_information = room_information;
         this.number_of_bed = number_of_bed ;
     }
+
+    public Room(int room_id, int floor_number, String type, int price ,  String room_information, int number_of_bed) {
+        this.room_id = room_id;
+        this.floor_number = floor_number;
+        this.type = type ;
+        this.price = price;
+        this.room_information = room_information;
+        this.number_of_bed = number_of_bed ;
+    }
+    public Room( int floor_number, String type, int price ,  String room_information, int number_of_bed) {
+        this.room_id = room_id;
+        this.floor_number = floor_number;
+        this.type = type ;
+        this.price = price;
+        this.room_information = room_information;
+        this.number_of_bed = number_of_bed ;
+    }
+
+
+
 
     public int getRoom_id() {
         return room_id;
@@ -51,11 +66,11 @@ public class Room {
         this.type = type;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

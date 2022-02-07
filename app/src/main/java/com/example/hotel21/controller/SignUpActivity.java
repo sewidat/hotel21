@@ -44,6 +44,9 @@ public class SignUpActivity extends AppCompatActivity {
         email = findViewById(R.id.Email);
         age = findViewById(R.id.Age);
         gender = findViewById(R.id.Gender);
+        int sessionId = getIntent().getIntExtra("postion",0);
+        System.out.println(sessionId + "in mesoo");
+
 
     }
 

@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.AddRoomsActivity;
-import com.example.hotel21.controller.SignUpActivity;
 
 
 public class AdminMainPage extends AppCompatActivity {
@@ -20,16 +18,19 @@ public class AdminMainPage extends AppCompatActivity {
     }
 
     public void addroomOnClik(View view) {
-        Intent intent = new Intent(AdminMainPage.this, AddRoomsActivity.class);
+        Intent intent = new Intent(AdminMainPage.this, AdminManageEmployee.class);
         startActivity(intent);
     }
 
     public void deleteroomOnClik(View view) {
-        Intent intent = new Intent(AdminMainPage.this, SignUpActivity.class);
+        Intent intent = new Intent(AdminMainPage.this, ServicePageForAdmin.class);
         startActivity(intent);
     }
 
 
     public void getroomOnClick(View view) {
+        Intent intent = new Intent(AdminMainPage.this, RoomsListViewForEmployee.class);
+        startActivity(intent);
+
     }
 }

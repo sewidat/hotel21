@@ -1,8 +1,12 @@
 package com.example.hotel21.model.room;
 
+import com.example.hotel21.model.service.ServiceDa;
+
 public class RoomFactory {
-    RoomDa getModel()
+   public RoomDa getModel()
     {
         return new RoomDa();
     }
+
+
 }

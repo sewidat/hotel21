@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.AdminController;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hotel21.R;
+import com.example.hotel21.controller.LonginActivity;
+import com.example.hotel21.model.room.Room;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,12 +41,11 @@ public class AddRoomsActivity extends AppCompatActivity {
 
     }
     public void btnaddRoomOnClik(View view) {
-        String Number_of_floor = edtFloorNumber.getText().toString();
-        String Price_of_Rooms = edtPriceOfRooms.getText().toString();
+        int Number_of_floor = Integer.parseInt(edtFloorNumber.getText().toString());
+        Double Price_of_Rooms = Double.parseDouble(edtPriceOfRooms.getText().toString());
         String Room_in_info = edtRoomInformation.getText().toString();
-        String Number_of_beds = edtNumberOfBedds.getText().toString();
+        int Number_of_beds = Integer.parseInt(edtNumberOfBedds.getText().toString());
         String Room_type = spinner_for_roomtype.getSelectedItem().toString();
-
         addRoom(Number_of_floor,Room_type,Price_of_Rooms,Room_in_info,Number_of_beds);
     }
 
@@ -54,9 +55,9 @@ public class AddRoomsActivity extends AppCompatActivity {
 
 
 
-    private void addRoom(String Number_of_floor, String Room_type, String Price_of_Rooms,String Room_in_info
-    ,String Number_of_beds) {
-        if (Number_of_floor.isEmpty() || Price_of_Rooms.isEmpty() || Room_in_info.isEmpty() || Number_of_beds.isEmpty() ||
+    private void addRoom(int Number_of_floor, String Room_type, Double Price_of_Rooms,String Room_in_info
+    ,int Number_of_beds) {
+        if (Number_of_floor == 0 || Price_of_Rooms == 0 || Room_in_info.isEmpty() || Number_of_beds == 0 ||
                 Room_type.isEmpty()) {
             Toast.makeText(this, "Please fill all data Requierd", Toast.LENGTH_SHORT).show();
         } else {
@@ -89,16 +90,17 @@ public class AddRoomsActivity extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> data = new HashMap<>();
-                    data.put("floor_number", Number_of_floor);
+                    data.put("floor_number", String.valueOf(Number_of_floor));
                     data.put("type", Room_type);
-                    data.put("day_price", Price_of_Rooms);
+                    data.put("day_price", String.valueOf(Price_of_Rooms));
                     data.put("room_information", Room_in_info);
-                    data.put("number_of_bed", Number_of_beds);
+                    data.put("number_of_bed", String.valueOf(Number_of_beds));
                     return data;
                 }
 
             };
             requestQueue.add(stringRequest);
+            //Room room = new Room(Number_of_floor,Room_type,Price_of_Rooms,Room_in_info,Number_of_beds);
         }
 
     }

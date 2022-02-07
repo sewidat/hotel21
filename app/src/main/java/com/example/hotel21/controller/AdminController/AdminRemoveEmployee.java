@@ -31,33 +31,14 @@ public class AdminRemoveEmployee extends AppCompatActivity {
     public void run() {
         final Handler handler = new Handler();
         ListView listView = findViewById(R.id.Delete_listviewForyEmployees);
-        SearchView searchView = findViewById(R.id.searchID);
 
         handler.post(
                 () -> {
                     UserFactory userFactory = new UserFactory();
                     IUserDa iUserDa = userFactory.getModel();
                     iUserDa.getEmployeesforAdmin(this,listView);
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> EmployeeListviewAdapter, View view, int i, long l) {
-                            Toast.makeText(AdminRemoveEmployee.this,"you click - " + EmployeeListviewAdapter.getItemAtPosition(i).toString(),Toast.LENGTH_SHORT);
 
-                        }
-                    });
-                    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                        @Override
-                        public boolean onQueryTextSubmit(String query) {
 
-                            
-                            return false;
-                        }
-
-                        @Override
-                        public boolean onQueryTextChange(String newText) {
-                            return false;
-                        }
-                    });
                 }
         );
 
