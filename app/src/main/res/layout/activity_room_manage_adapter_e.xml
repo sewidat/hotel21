@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context=".controller.AdminController.RoomsListViewForEmployee">
+
+
+
+    <TableRow>
+        <TextView
+            android:layout_column="0"
+            android:layout_span="1"
+            android:id="@+id/room_idtextview_E"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_column="1"
+            android:layout_span="1"
+            android:id="@+id/room_floorNumbertextview_E"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+
+        <TextView
+            android:layout_marginRight="20dp"
+            android:layout_column="2"
+            android:layout_span="1"
+            android:id="@+id/room_typetextview_E"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+
+            />
+
+        <TextView
+            android:layout_column="3"
+            android:layout_span="1"
+            android:id="@+id/room_daypricetextview_E"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+
+        <TextView
+            android:layout_column="4"
+            android:layout_span="1"
+            android:id="@+id/room_roomInformationtextview_E"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+        <TextView
+            android:layout_column="5"
+            android:layout_span="1"
+            android:id="@+id/room_number_of_bed_textview_E"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_column="0"
+            android:layout_span="2"
+            android:id="@+id/room_btnforUpdate_E"
+            android:text="Update"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="updateRoomsbtnOnClick"
+
+
+            />
+        </TableRow>
+
+</TableLayout>

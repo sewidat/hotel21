@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    tools:context=".controller.EmployeeController.UpdateReservitionEmp_Acitivty">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <Button
+            android:layout_column="0"
+            android:layout_span="1"
+            android:text="meso"
+            android:id="@+id/Up_backBtn"
+            android:onClick="Upbackbtn"
+            />
+        <Button
+            android:layout_column="2"
+            android:layout_span="2"
+            android:text="Reserve_Done"
+            android:id="@+id/Up_ReserveDone"
+            android:onClick="Upreservebtn"
+            />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:layout_column="0"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="Reserve_id"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="1"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="room_id"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="2"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="Start_date"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_column="3"
+            android:layout_span="1"
+            android:background="#c0c0c0"
+            android:padding="10dp"
+            android:text="End_date"
+            android:textStyle="bold" />
+
+
+
+    </TableRow>
+
+        <ListView
+            android:id="@+id/Up_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearForbtns"
+            android:layout_marginTop="20dp"
+            />
+
+
+
+</TableLayout>

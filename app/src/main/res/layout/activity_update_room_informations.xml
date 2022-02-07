@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_animation"
+    tools:context=".controller.AdminController.UpdateRoomInformations"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/signinPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:gravity="center"
+            android:text="Update Room Informations"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:textStyle="bold">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Room_id: "
+            android:layout_above="@id/Up_roomid"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+
+            >
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/Up_roomid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/signinPage"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawablePadding="20dp"
+
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Floor_number "
+            android:id="@+id/textview_roompass"
+            android:layout_below="@+id/Up_roomid"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+
+            >
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/Up_floornumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_roompass"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawablePadding="20dp"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type: "
+            android:id="@+id/textview_roomtype"
+            android:layout_below="@+id/Up_floornumber"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+
+            >
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/Up_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_roomtype"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawablePadding="20dp"
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Room Price "
+            android:id="@+id/textview_roomprice"
+            android:layout_below="@+id/Up_type"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+
+            >
+
+        </TextView>
+
+
+
+        <EditText
+            android:id="@+id/Up_roomprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_roomprice"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawablePadding="20dp"
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number of beds : "
+            android:id="@+id/textview_numberofbeds"
+            android:layout_below="@+id/Up_roomprice"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+
+            >
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/Up_numberofbeds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_numberofbeds"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawablePadding="20dp"
+            android:hint="E-mail"
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Room information "
+            android:id="@+id/textview_roominfo"
+            android:layout_below="@+id/Up_numberofbeds"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+
+            >
+
+        </TextView>
+
+
+
+        <EditText
+            android:id="@+id/Up_roomINFO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_roominfo"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawablePadding="20dp"
+            android:inputType="number"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+
+
+        <Button
+            android:id="@+id/signupbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/material_on_primary_emphasis_medium"
+            android:text="Sing up"
+            android:onClick="NewAccountonClik"
+            android:textColor="@color/black"></Button>
+    </RelativeLayout>
+
+
+</ScrollView>

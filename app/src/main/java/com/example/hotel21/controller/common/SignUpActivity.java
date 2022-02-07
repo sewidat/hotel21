@@ -1,7 +1,8 @@
-package com.example.hotel21.controller.common;
+package com.example.hotel21.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,10 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.hotel21.R;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.example.hotel21.R;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText user_name , passowd ,fisrt_name , last_name ,visa_card,
@@ -52,8 +54,9 @@ public class SignUpActivity extends AppCompatActivity {
         String Age = age.getText().toString();
         String emaill = email.getText().toString();
         String usergender = gender.getText().toString();
-        addUser(userName,Password,firstname
-                ,lastname,visacard,emaill,phoneN,usergender,userage);
+        UserFactory userFactory = new UserFactory();
+        IUserDa iUserDa = userFactory.getModel();
+        iUserDa.addUser(SignUpActivity.this,userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Age);
 
     }
     private void addUser(String userName, String Password, String firstname
@@ -111,7 +114,8 @@ public class SignUpActivity extends AppCompatActivity {
             requestQueue.add(stringRequest);
         }
 
-
+        }
+        User user = new User(userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Integer.parseInt(user_age));
 
     }
 
