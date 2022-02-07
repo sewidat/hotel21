@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
     ) {
         // false from lowest to highest
         initData();
+        RoomAdapter.reserve = false;
         roomAdapter = new RoomAdapter(container.getContext(), roomList);
         View view = inflater.inflate(R.layout.activity_main_screen, container, false);
         recyclerView = view.findViewById(R.id.rooms_recycler_view);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -19,6 +20,7 @@ public class RoomView extends AppCompatActivity {
     GridView gridView;
     int roomID;
     int position;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,12 @@ public class RoomView extends AppCompatActivity {
         setContentView(R.layout.activity_room_view);
         gridView = findViewById(R.id.room_details_grid);
         imageView = findViewById(R.id.room_detail_image);
+        button = findViewById(R.id.button5);
         Intent intent = getIntent();
+        boolean reserve = intent.getBooleanExtra("reserve", false);
+        if (reserve){
+            button.setVisibility(View.GONE);
+        }
         roomID = Integer.parseInt(intent.getStringExtra("roomID"));
         position = intent.getIntExtra("position", 0);
         int imageID = intent.getIntExtra("image", R.drawable.hotel);

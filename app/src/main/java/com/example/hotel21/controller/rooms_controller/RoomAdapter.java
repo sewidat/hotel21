@@ -18,6 +18,7 @@ import java.util.List;
 public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
     private static final String TAG = "RoomAdapter";
     public static List<Room> roomList;
+    public static boolean reserve = false;
     Context context;
 
     public RoomAdapter(Context context, List<Room> roomList) {
@@ -49,6 +50,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
             intent.putExtra("image", R.drawable.map);
             intent.putExtra("roomID", roomList.get(position).getRoom_id() + "");
             intent.putExtra("position", position);
+            intent.putExtra("reserve", reserve);
             context.startActivity(intent);
         });
 

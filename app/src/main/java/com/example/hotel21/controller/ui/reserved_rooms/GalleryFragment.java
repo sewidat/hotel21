@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotel21.R;
 import com.example.hotel21.controller.rooms_controller.RoomAdapter;
+import com.example.hotel21.controller.rooms_controller.RoomView;
 import com.example.hotel21.model.room.Room;
 
 import java.util.ArrayList;
@@ -30,12 +32,15 @@ public class GalleryFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        roomAdapter = new RoomAdapter(container.getContext(), roomList);
         View view = inflater.inflate(R.layout.activity_main_screen, container, false);
+        roomAdapter = new RoomAdapter(this.getContext(), roomList);
+        RoomAdapter.reserve = true;
         recyclerView = view.findViewById(R.id.rooms_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(roomAdapter);
+        System.out.println(view.getClass().getSimpleName());
+
         return view;
 
     }
