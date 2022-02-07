@@ -1,10 +1,7 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.rooms_controller;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hotel21.R;
 import com.example.hotel21.model.room.Room;
 
-import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
@@ -24,12 +21,12 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
     Context context;
 
     public RoomAdapter(Context context, List<Room> roomList) {
-        this.roomList = roomList;
+        RoomAdapter.roomList = roomList;
         this.context = context;
     }
 
     public RoomAdapter(List<Room> roomList) {
-        this.roomList = roomList;
+        RoomAdapter.roomList = roomList;
     }
 
     @NonNull
@@ -59,6 +56,10 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
 
     @Override
     public int getItemCount() {
+        if (roomList == null) {
+            roomList = new ArrayList<>();
+            return 0;
+        }
         return roomList.size();
     }
 }

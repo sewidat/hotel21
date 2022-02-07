@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/head"
-    tools:context=".controller.RoomView">
+    tools:context=".controller.rooms_controller.RoomView">
 
     <ImageView
         android:id="@+id/room_detail_image"

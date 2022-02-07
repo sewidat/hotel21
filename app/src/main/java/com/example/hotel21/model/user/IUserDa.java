@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface IUserDa {
     List<User> getUsers();
-    public String  updateUser(User user) ;
+    String  updateUser(User user) ;
 }

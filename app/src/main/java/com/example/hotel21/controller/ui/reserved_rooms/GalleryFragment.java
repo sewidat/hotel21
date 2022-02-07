@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.RoomAdapter;
-import com.example.hotel21.controller.ui.home.HomeFragment;
+import com.example.hotel21.controller.rooms_controller.RoomAdapter;
 import com.example.hotel21.model.room.Room;
 
 import java.util.ArrayList;

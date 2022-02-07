@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.common;
 
 import android.content.Context;
 

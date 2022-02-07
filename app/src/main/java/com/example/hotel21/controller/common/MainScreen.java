@@ -1,13 +1,13 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.common;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import com.example.hotel21.R;
+import com.example.hotel21.controller.rooms_controller.RoomAdapter;
 import com.example.hotel21.model.room.Room;
 
 import java.util.ArrayList;

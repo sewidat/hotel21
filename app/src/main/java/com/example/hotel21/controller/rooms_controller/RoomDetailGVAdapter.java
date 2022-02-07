@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.rooms_controller;
 
 import android.content.Context;
 import android.view.LayoutInflater;

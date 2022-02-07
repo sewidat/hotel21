@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.user_controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.hotel21.R;
 
-public class UpdatePayment extends AppCompatActivity {
+public class UpdateSecurityDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_payment);
+        setContentView(R.layout.activity_update_security_details);
     }
 }

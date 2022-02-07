@@ -1,9 +1,8 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.user_controller;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;

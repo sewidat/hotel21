@@ -1,8 +1,7 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.common;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,11 +16,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.hotel21.R;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.example.hotel21.R;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText user_name , passowd ,fisrt_name , last_name ,visa_card,

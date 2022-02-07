@@ -15,7 +15,7 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.hotel21.controller.SignUpActivity;
+import com.example.hotel21.controller.common.SignUpActivity;
 import  com.example.hotel21.model.user.User;
 
 public class Database {

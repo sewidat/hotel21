@@ -3,7 +3,6 @@ package com.example.hotel21.controller.ui.user_details;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,9 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.UpdatePayment;
-import com.example.hotel21.controller.UpdateSecurityDetails;
-import com.example.hotel21.controller.UserDetailsUpdate;
+import com.example.hotel21.controller.user_controller.UpdatePayment;
+import com.example.hotel21.controller.user_controller.UpdateSecurityDetails;
+import com.example.hotel21.controller.user_controller.UserDetailsUpdate;
 
 
 public class UserDetailsUpdateFragment extends Fragment {
@@ -36,7 +35,7 @@ public class UserDetailsUpdateFragment extends Fragment {
         return view;
     }
 
-    private View.OnClickListener listener = v -> {
+    private final View.OnClickListener listener = v -> {
         Intent intent;
         switch (v.getId()) {
             case R.id.user_details:

@@ -1,10 +1,8 @@
 package com.example.hotel21.controller.ui.home;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,10 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.RoomAdapter;
-import com.example.hotel21.controller.UpdatePayment;
-import com.example.hotel21.controller.UpdateSecurityDetails;
-import com.example.hotel21.controller.UserDetailsUpdate;
+import com.example.hotel21.controller.rooms_controller.RoomAdapter;
 import com.example.hotel21.model.room.Room;
 
 import java.util.ArrayList;

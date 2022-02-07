@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.rooms_controller;
 
 import android.content.Intent;
 import android.util.Log;

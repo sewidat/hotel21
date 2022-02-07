@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.rooms_controller;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.hotel21.R;
+import com.example.hotel21.controller.common.MainActivity;
 import com.example.hotel21.controller.ui.reserved_rooms.GalleryFragment;
 
 import java.util.ArrayList;

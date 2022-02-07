@@ -1,27 +1,25 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.common;
 
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
+import android.view.MenuItem;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.hotel21.R;
 import com.example.hotel21.controller.ui.home.HomeFragment;
 import com.example.hotel21.databinding.ActivityMainBinding;
 import com.example.hotel21.model.room.Room;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {

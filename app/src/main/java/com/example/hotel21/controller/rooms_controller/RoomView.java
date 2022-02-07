@@ -1,11 +1,8 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.rooms_controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,8 +13,6 @@ import com.example.hotel21.R;
 import com.example.hotel21.model.room.RoomDetail;
 
 import java.util.ArrayList;
-
-import lombok.var;
 
 public class RoomView extends AppCompatActivity {
     ImageView imageView;

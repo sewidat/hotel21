@@ -1,4 +1,4 @@
-package com.example.hotel21.controller;
+package com.example.hotel21.controller.user_controller;
 
 import android.os.Bundle;
 
