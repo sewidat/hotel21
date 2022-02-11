@@ -1,5 +1,6 @@
 package com.example.hotel21.model.database;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -22,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.example.hotel21.R;
@@ -58,8 +60,7 @@ public class Database extends AppCompatActivity {
     UpdateAdapter updateAdapter;
     EmployeesListviewAdpater employeesListviewAdater;
     RoomManageAdapterE roomManageAdapterE;
-    public static ArrayList<Room> listRoom = new ArrayList<>();
-
+//    public static ArrayList<Room> listRoom = new ArrayList<>();
 
 
     private static Database single_instance = null;
@@ -723,10 +724,13 @@ public class Database extends AppCompatActivity {
     }
 
 
-    public void listRoomsforuser(MainActivity mainActivity) {
-        listRoom.clear();
+    public List<Room> listRoomsforuser(Context context) throws InterruptedException {
+//        listRoom.clear();
+        ArrayList<Room> listRoom = new ArrayList<>();
+
+
         RequestQueue queue;
-        queue = Volley.newRequestQueue(mainActivity.getApplicationContext());
+        queue = Volley.newRequestQueue(context);
         String url = "http://10.0.2.2/hotel21/getroomforuser.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
@@ -748,13 +752,17 @@ public class Database extends AppCompatActivity {
 
         queue.add(request);
 
+
+        return listRoom;
     }
-    public  ArrayList<Room> roomlistforemployee(HomeFragment homeFragment){
-        ArrayList<Room> list  = listRoom;
-        System.out.println("hello meso you are inside  " + listRoom );
 
-
-        return list;
+    public ArrayList<Room> roomlistforemployee(HomeFragment homeFragment) {
+//        ArrayList<Room> list  = listRoom;
+//        System.out.println("hello meso you are inside  " + listRoom );
+//
+//
+//        return list;
+        return null;
     }
 }
 

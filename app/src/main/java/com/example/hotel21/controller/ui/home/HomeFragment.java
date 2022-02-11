@@ -1,5 +1,6 @@
 package com.example.hotel21.controller.ui.home;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ import java.util.List;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class HomeFragment extends Fragment {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     public static List<Room> roomList;
     public static boolean order = false;
     static RoomAdapter roomAdapter;
@@ -38,14 +39,15 @@ public class HomeFragment extends Fragment {
     ) {
 
         // false from lowest to highest
-        initData();
         RoomAdapter.reserve = false;
-        roomAdapter = new RoomAdapter(container.getContext(), roomList);
         View view = inflater.inflate(R.layout.activity_main_screen, container, false);
+        roomAdapter = new RoomAdapter(container.getContext(), roomList);
         recyclerView = view.findViewById(R.id.rooms_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(roomAdapter);
+        Thread thread = new Thread(new Task(view.getContext()));
+        thread.start();
         return view;
 
     }
@@ -53,7 +55,38 @@ public class HomeFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void initData() {
-        roomList = Database.getInstance().roomlistforemployee(HomeFragment.this);
+        try {
+//            roomList = (ArrayList<Room>) Database.getInstance().listRoomsforuser(context);
+            System.out.println();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    class Task implements Runnable {
+        Context context;
+
+        public Task(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void run() {
+            try {
+                roomList = (ArrayList<Room>) Database.getInstance().listRoomsforuser(context);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            recyclerView.post(new Runnable() {
+                @Override
+                public void run() {
+                    roomAdapter.notifyDataSetChanged();
+                }
+            });
+        }
+
 
     }
 

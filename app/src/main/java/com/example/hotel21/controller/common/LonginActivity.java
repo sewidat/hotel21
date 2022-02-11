@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,6 +31,8 @@ import com.example.hotel21.R;
 import com.example.hotel21.controller.AdminController.AddRoomsActivity;
 import com.example.hotel21.controller.AdminController.AdminMainPage;
 import com.example.hotel21.controller.EmployeeController.EmployeeMainPage;
+import com.example.hotel21.controller.ui.home.HomeFragment;
+import com.example.hotel21.model.database.Database;
 import com.example.hotel21.model.user.User;
 
 public class LonginActivity extends AppCompatActivity {
@@ -47,6 +50,7 @@ public class LonginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+         ViewGroup container;
         setContentView(R.layout.ogin);
         username = findViewById(R.id.Username);
         password = findViewById(R.id.Password);
