@@ -9,7 +9,10 @@
 
 
 
-    <TableRow>
+    <TableRow
+
+        >
+
         <TextView
             android:layout_column="0"
             android:layout_span="1"
@@ -19,21 +22,22 @@
             />
 
         <TextView
-            android:layout_marginLeft="30dp"
             android:layout_column="1"
             android:layout_span="1"
+            android:layout_marginLeft="15dp"
             android:id="@+id/room_floorNumbertextview_E"
             android:layout_width="50dp"
             android:layout_height="50dp"
             />
 
         <TextView
-            android:layout_marginRight="20dp"
             android:layout_column="2"
             android:layout_span="1"
             android:id="@+id/room_typetextview_E"
             android:layout_width="50dp"
             android:layout_height="50dp"
+
+
 
 
             />
@@ -44,6 +48,7 @@
             android:id="@+id/room_daypricetextview_E"
             android:layout_width="50dp"
             android:layout_height="50dp"
+
             />
 
         <TextView
@@ -51,10 +56,10 @@
             android:layout_span="1"
             android:id="@+id/room_roomInformationtextview_E"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             />
         <TextView
-            android:layout_column="5"
+            android:layout_column="6"
             android:layout_span="1"
             android:id="@+id/room_number_of_bed_textview_E"
             android:layout_width="50dp"

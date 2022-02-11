@@ -46,7 +46,7 @@
             android:layout_margin="15dp"
             android:background="#30ffffff"
             android:drawablePadding="20dp"
-
+            android:editable="false"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="@color/black" />
@@ -73,7 +73,6 @@
             android:layout_margin="15dp"
             android:background="#30ffffff"
             android:drawablePadding="20dp"
-            android:inputType="textPassword"
             android:padding="20dp"
             android:textColorHint="@color/black" />
 
@@ -194,7 +193,7 @@
             android:id="@+id/signupbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/phone"
+            android:layout_below="@id/Up_roomINFO"
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
             android:backgroundTint="@color/material_on_primary_emphasis_medium"

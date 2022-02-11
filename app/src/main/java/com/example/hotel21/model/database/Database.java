@@ -40,8 +40,10 @@ import com.example.hotel21.controller.EmployeeController.UpdateReservitionEmp_Ac
 import com.example.hotel21.controller.common.LonginActivity;
 import com.example.hotel21.controller.AdminController.ServicePageForAdmin;
 import com.example.hotel21.controller.AdminController.ServicesAdapter;
+import com.example.hotel21.controller.common.MainActivity;
 import com.example.hotel21.controller.common.SignUpActivity;
 import com.example.hotel21.controller.EmployeeController.EmployeeListViewItem;
+import com.example.hotel21.controller.ui.home.HomeFragment;
 import com.example.hotel21.model.reserve.Reserve;
 import com.example.hotel21.model.room.Room;
 import com.example.hotel21.model.service.Service;
@@ -56,7 +58,8 @@ public class Database extends AppCompatActivity {
     UpdateAdapter updateAdapter;
     EmployeesListviewAdpater employeesListviewAdater;
     RoomManageAdapterE roomManageAdapterE;
-     public  static  ArrayList<Room> arrayList = new ArrayList<>();
+    public static ArrayList<Room> listRoom = new ArrayList<>();
+
 
 
     private static Database single_instance = null;
@@ -113,7 +116,7 @@ public class Database extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    EmployeeMainPage EMP ;
+    EmployeeMainPage EMP;
 
     public void getListViewForEmployee(EmployeeMainPage employeeMainPage, ListView listview) {
 
@@ -130,7 +133,7 @@ public class Database extends AppCompatActivity {
                 try {
 
                     JSONObject obj = response.getJSONObject(i);
-                    items.add(new EmployeeListViewItem(obj.getInt("reserve_id"), obj.getInt("service_id") , obj.getInt("room_id"),obj.getString("service_description")));
+                    items.add(new EmployeeListViewItem(obj.getInt("reserve_id"), obj.getInt("service_id"), obj.getInt("room_id"), obj.getString("service_description")));
                     System.out.println(items.size());
                 } catch (JSONException exception) {
                     Log.d("Error", exception.toString());
@@ -221,8 +224,7 @@ public class Database extends AppCompatActivity {
         }
     }
 
-    public void getCurrentDate (UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty)
-    {
+    public void getCurrentDate(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty) {
         String url = "http://worldtimeapi.org/api/timezone/Asia/Hebron";
         RequestQueue queue;
         queue = Volley.newRequestQueue(updateReservitionEmp_acitivty.getApplicationContext());
@@ -233,9 +235,9 @@ public class Database extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                       try {
-                           String datetime = response.getString("datetime").substring(0,10);
-                           setAllDoneReservesDone(updateReservitionEmp_acitivty , datetime);
+                        try {
+                            String datetime = response.getString("datetime").substring(0, 10);
+                            setAllDoneReservesDone(updateReservitionEmp_acitivty, datetime);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -260,7 +262,7 @@ public class Database extends AppCompatActivity {
 
     }
 
-    public void setAllDoneReservesDone(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty  , String date ) {
+    public void setAllDoneReservesDone(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, String date) {
 
         String url = "http://10.0.2.2/hotel21/employee/updateResarveFromEmployee.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -274,7 +276,7 @@ public class Database extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(updateReservitionEmp_acitivty, error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
-        }){
+        }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -315,7 +317,8 @@ public class Database extends AppCompatActivity {
         queue.add(request);
 
     }
-    public  void setServicesToReserveDonebyemployee( String reserve_id , String service_id ){
+
+    public void setServicesToReserveDonebyemployee(String reserve_id, String service_id) {
         String url = "http://10.0.2.2/hotel21/employee/setServiceToReserveDone.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -324,7 +327,7 @@ public class Database extends AppCompatActivity {
                     Toast.makeText(EMP, "Update Done successfully.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(EMP.getApplicationContext(), EmployeeMainPage.class);
                     startActivity(intent);
-                } else  {
+                } else {
                     Toast.makeText(EMP, "Invalid Update !!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -338,7 +341,7 @@ public class Database extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> data = new HashMap<>();
-                data.put("service_id",  service_id);
+                data.put("service_id", service_id);
                 data.put("reserve_id", reserve_id);
                 return data;
             }
@@ -349,8 +352,7 @@ public class Database extends AppCompatActivity {
     }
 
 
-
-    public void setServicesfromadmin(ServicePageForAdmin servicePageForAdmin , String Des , String price) {
+    public void setServicesfromadmin(ServicePageForAdmin servicePageForAdmin, String Des, String price) {
         RequestQueue requestQueue = Volley.newRequestQueue(servicePageForAdmin.getApplicationContext());
         String url = "http://10.0.2.2:80/hotel21/AddservicesFromAdmin.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -386,12 +388,13 @@ public class Database extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
-    public void addUser(SignUpActivity signUpActivity ,String userName, String Password, String firstname
-            ,String lastname , String visacard , String emaill, String phoneN,String usergender,String user_age) {
-        if(userName.isEmpty()||Password.isEmpty()||firstname.isEmpty()||lastname.isEmpty()||visacard.isEmpty()||
-                emaill.isEmpty()||  phoneN.isEmpty()||user_age.isEmpty()||usergender.isEmpty()){
+
+    public void addUser(SignUpActivity signUpActivity, String userName, String Password, String firstname
+            , String lastname, String visacard, String emaill, String phoneN, String usergender, String user_age) {
+        if (userName.isEmpty() || Password.isEmpty() || firstname.isEmpty() || lastname.isEmpty() || visacard.isEmpty() ||
+                emaill.isEmpty() || phoneN.isEmpty() || user_age.isEmpty() || usergender.isEmpty()) {
             Toast.makeText(this, "Please fill all data Requierd", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             RequestQueue requestQueue = Volley.newRequestQueue(signUpActivity.getApplicationContext());
 
             String url = "http://10.0.2.2:80/hotel21/signup.php";
@@ -429,7 +432,7 @@ public class Database extends AppCompatActivity {
                     data.put("first_name", firstname);
                     data.put("last_name", lastname);
                     data.put("visa_number", visacard);
-                    data.put("user_email",emaill );
+                    data.put("user_email", emaill);
                     data.put("user_phone", phoneN);
                     data.put("user_gender", usergender);
                     data.put("user_age", user_age);
@@ -441,9 +444,10 @@ public class Database extends AppCompatActivity {
             requestQueue.add(stringRequest);
 
         }
-        User user = new User(userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Integer.parseInt(user_age));
+        User user = new User(userName, Password, firstname, lastname, visacard, emaill, phoneN, usergender, Integer.parseInt(user_age));
 
     }
+
     public void getReservitionForEmployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, ListView listView) {
         RequestQueue queue;
         queue = Volley.newRequestQueue(updateReservitionEmp_acitivty.getApplicationContext());
@@ -457,13 +461,13 @@ public class Database extends AppCompatActivity {
                 try {
 
                     JSONObject obj = response.getJSONObject(i);
-                    items.add(new Reserve(obj.getInt("reserve_id"), obj.getInt("room_id"), obj.getString("start_time"),obj.getString("end_time")));
-                     for(int a = 0 ; a<items.size();a++){
-                         System.out.println(items.get(a).getReserve_id() + "\n"+
-                         items.get(a).getRoom_id()  + "\n"+
-                         items.get(a).getStart_time() + "\n"+
-                          items.get(a).getEnd_time());
-                     }
+                    items.add(new Reserve(obj.getInt("reserve_id"), obj.getInt("room_id"), obj.getString("start_time"), obj.getString("end_time")));
+                    for (int a = 0; a < items.size(); a++) {
+                        System.out.println(items.get(a).getReserve_id() + "\n" +
+                                items.get(a).getRoom_id() + "\n" +
+                                items.get(a).getStart_time() + "\n" +
+                                items.get(a).getEnd_time());
+                    }
                     System.out.println("we are done");
                 } catch (JSONException exception) {
                     Log.d("Error", exception.toString());
@@ -478,8 +482,9 @@ public class Database extends AppCompatActivity {
         queue.add(request);
 
     }
-    public void Updatedatafromemployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty ,String userName, String Password,
-                                             String visacard , String emaill, String phoneN,String user_age) {
+
+    public void Updatedatafromemployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, String userName, String Password,
+                                       String visacard, String emaill, String phoneN, String user_age) {
 
         System.out.println(userName + "this is username");
 
@@ -518,7 +523,7 @@ public class Database extends AppCompatActivity {
                 data.put("user_name", userName);
                 data.put("user_password", Password);
                 data.put("visa_number", visacard);
-                data.put("user_email",emaill );
+                data.put("user_email", emaill);
                 data.put("user_phone", phoneN);
                 data.put("user_age", user_age);
 
@@ -531,7 +536,7 @@ public class Database extends AppCompatActivity {
     }
 
 
-    public void AdmingAddEmployee(AdminaddEmployees adminaddEmployees , String userName, String Password) {
+    public void AdmingAddEmployee(AdminaddEmployees adminaddEmployees, String userName, String Password) {
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(adminaddEmployees.getApplicationContext());
@@ -546,7 +551,6 @@ public class Database extends AppCompatActivity {
 
                 if (response.contains("success")) {
                     Toast.makeText(adminaddEmployees, "Emplyoee is added", Toast.LENGTH_SHORT).show();
-
 
 
                 } else if (response.contains("failure")) {
@@ -575,7 +579,8 @@ public class Database extends AppCompatActivity {
 
     }
 
-    AdminRemoveEmployee ADE ;
+    AdminRemoveEmployee ADE;
+
     public void getEmlpoyeesForAdmin(AdminRemoveEmployee adminRemoveEmployee, ListView listview) {
         ADE = adminRemoveEmployee;
         RequestQueue queue;
@@ -592,7 +597,7 @@ public class Database extends AppCompatActivity {
                 try {
 
                     JSONObject obj = response.getJSONObject(i);
-                    items.add(new User(obj.getInt("user_id"),  obj.getString("first_name"),obj.getString("last_name")));
+                    items.add(new User(obj.getInt("user_id"), obj.getString("first_name"), obj.getString("last_name")));
                 } catch (JSONException exception) {
                     Log.d("Error", exception.toString());
                 }
@@ -608,7 +613,7 @@ public class Database extends AppCompatActivity {
     }
 
 
-    public  void RemoveEmplyoeebyID( int user_id) {
+    public void RemoveEmplyoeebyID(int user_id) {
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(ADE.getApplicationContext());
@@ -623,7 +628,6 @@ public class Database extends AppCompatActivity {
 
                 if (response.contains("success")) {
                     Toast.makeText(ADE, "Emplyoee is Removed", Toast.LENGTH_SHORT).show();
-
 
 
                 } else if (response.contains("failure")) {
@@ -655,16 +659,16 @@ public class Database extends AppCompatActivity {
         RequestQueue queue;
         queue = Volley.newRequestQueue(roomsListViewForEmployee.getApplicationContext());
         String url = "http://10.0.2.2/hotel21/getRoomsForAdmin.php";
+        ArrayList<Room> arrayList = new ArrayList<>();
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, response -> {
             ArrayList<Room> items = new ArrayList<>();
             for (int i = 0; i < response.length(); i++) {
                 try {
-                    System.out.println(response);
 
                     JSONObject obj = response.getJSONObject(i);
-                    arrayList.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"),obj.getInt("day_price"),obj.getString("room_information"),obj.getInt("number_of_bed")));
+                    arrayList.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"), obj.getInt("day_price"), obj.getString("room_information"), obj.getInt("number_of_bed")));
 
                     System.out.println("we are done");
                 } catch (JSONException exception) {
@@ -682,14 +686,14 @@ public class Database extends AppCompatActivity {
     }
 
     public void updateRooms(Room user, UpdateRoomInformations updateRoomInformations) {
-
-        String url = "http://10.0.2.2/hotel21/updateUser.php";
+        System.out.println(user.getFloor_number() + "------------");
+        String url = "http://10.0.2.2/hotel21/updateRoom.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.equals("success")) {
+                if (response.contains("success")) {
                     Toast.makeText(updateRoomInformations, "Update Done successfully.", Toast.LENGTH_SHORT).show();
-                } else if (response.equals("failure")) {
+                } else if (response.contains("failure")) {
                     Toast.makeText(updateRoomInformations, "Invalid Update !!!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -719,8 +723,54 @@ public class Database extends AppCompatActivity {
     }
 
 
+    public void listRoomsforuser(MainActivity mainActivity) {
+        listRoom.clear();
+        RequestQueue queue;
+        queue = Volley.newRequestQueue(mainActivity.getApplicationContext());
+        String url = "http://10.0.2.2/hotel21/getroomforuser.php";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
+                null, response -> {
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    System.out.println(response);
+
+                    JSONObject obj = response.getJSONObject(i);
+                    listRoom.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"), obj.getInt("day_price"), obj.getString("room_information"), obj.getInt("number_of_bed")));
+                    System.out.println("we are done");
+                } catch (JSONException exception) {
+                    Log.d("Error", exception.toString());
+                }
+            }
+
+
+        }, error -> System.out.println(error.getMessage()));
+
+        queue.add(request);
 
     }
+    public  ArrayList<Room> roomlistforemployee(HomeFragment homeFragment){
+        ArrayList<Room> list  = listRoom;
+        System.out.println("hello meso you are inside  " + listRoom );
+
+
+        return list;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

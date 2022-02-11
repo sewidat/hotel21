@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.example.hotel21.R;
 import com.example.hotel21.controller.common.SignUpActivity;
 import com.example.hotel21.model.room.IRoomDa;
+import com.example.hotel21.model.room.Room;
 import com.example.hotel21.model.room.RoomDa;
 import com.example.hotel21.model.room.RoomFactory;
 import com.example.hotel21.model.user.IUserDa;
@@ -47,8 +50,6 @@ public class RoomsListViewForEmployee extends AppCompatActivity {
                 }
 
     public void updateRoomsbtnOnClick(View view) {
-        Intent intent  = new Intent(RoomsListViewForEmployee.this , UpdateRoomInformations.class);
-        intent.putExtra("Postion",RoomManageAdapterE.helppos);
-        startActivity(intent);
+
     }
 }

@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.hotel21.R;
 import com.example.hotel21.controller.ui.home.HomeFragment;
 import com.example.hotel21.databinding.ActivityMainBinding;
+import com.example.hotel21.model.database.Database;
 import com.example.hotel21.model.room.Room;
 import com.google.android.material.navigation.NavigationView;
 
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Database.getInstance().listRoomsforuser(MainActivity.this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_sort_24);

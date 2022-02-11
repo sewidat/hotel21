@@ -23,8 +23,8 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         roomsRecyclerView = findViewById(R.id.rooms_recycler_view);
-        initData();
-        initRecyclerView();
+        //initData();
+        //initRecyclerView();
 
     }
 
@@ -35,24 +35,8 @@ public class MainScreen extends AppCompatActivity {
     }
 
     private void initData() {
-        roomList = new ArrayList<>();
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(2, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(3, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(7, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(5, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-//        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
+
+
     }
 
 }

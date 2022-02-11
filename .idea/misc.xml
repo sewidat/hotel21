@@ -4,19 +4,29 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../.gradle/caches/transforms-3/97988b0f28a513a04038e9dd724181a1/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.17198581560283688" />
-        <entry key="../../.gradle/caches/transforms-3/97988b0f28a513a04038e9dd724181a1/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.17198581560283688" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_aboutus.xml" value="0.16485507246376813" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_add_rooms.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_admin_mainpage.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_admin_manage_employee.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_admin_manage_rooms.xml" value="0.13949275362318841" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_admin_remove_employee.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_adminadd_employees.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_adminadd_services.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_employee_adapter.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_employees_listview_adpater.xml" value="0.1" />
-        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_room_manage_adapter_e.xml" value="0.13949275362318841" />
-        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_rooms_list_view_for_employee.xml" value="0.13949275362318841" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_main_screen.xml" value="0.1272644927536232" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_reserve_page.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_room2.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_room_main_acivity_for_admin.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_room_manage_adapter_e.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_room_view.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_rooms_list_view_for_employee.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_service_page_for_admin.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_services_adapter.xml" value="0.1" />
-        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_update_room_informations.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_update_reservition_emp_acitivty.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/activity_update_room_informations.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/room_card.xml" value="0.1" />
+        <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/room_detail.xml" value="0.1" />
         <entry key="..\:/Users/97059/AndroidStudioProjects/hotel21/app/src/main/res/layout/signin.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21458333333333332" />
         <entry key="app/src/main/res/drawable/center_gradient.xml" value="0.19375" />

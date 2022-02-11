@@ -52,6 +52,7 @@ public class LonginActivity extends AppCompatActivity {
         password = findViewById(R.id.Password);
         queue = Volley.newRequestQueue(this);
         chx = findViewById(R.id.checkbox);
+
         remember();
 
     }
@@ -74,29 +75,32 @@ public class LonginActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
         } else {
 
-            String url = "http://10.0.2.2:81/hotel21/login.php";
+            String url = "http://10.0.2.2:80/hotel21/login.php";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     System.out.println(response + "----mes");
 
                     if (response.contains("successc")) {
-
                         Toast.makeText(LonginActivity.this, "malik" + password, Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(LonginActivity.this, EmployeeMainPage.class);
+                        Intent intent = new Intent(LonginActivity.this, MainActivity.class);
+                        intent.putExtra("user_name", user_name);
                         startActivity(intent);
 
+
                     } else if (response.contains("successA")) {
-                        Toast.makeText(LonginActivity.this, "hello Admin", Toast.LENGTH_SHORT);
-                        System.out.println("hello admin");
-                        Intent intent = new Intent(LonginActivity.this, AddRoomsActivity.class);
+
+                        Intent intent = new Intent(LonginActivity.this, AdminMainPage.class);
+                        intent.putExtra("user_name", user_name);
                         startActivity(intent);
 
 
                     } else if (response.contains("successE")) {
                         Toast.makeText(LonginActivity.this, "hello employee", Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(LonginActivity.this, AdminMainPage.class);
+                        Intent intent = new Intent(LonginActivity.this, EmployeeMainPage.class);
+                        intent.putExtra("user_name", user_name);
                         startActivity(intent);
+
 
                     } else if (response.contains("failure")) {
 

@@ -91,7 +91,7 @@ public class RoomManageAdapterE extends ArrayAdapter<Room>  {
                 editor.putInt("price", price);
                 editor.putInt("number_of_bed",number_of_bed);
                 editor.commit();
-                Intent intent = new Intent(context_service,SignUpActivity.class);
+                Intent intent = new Intent(context_service,UpdateRoomInformations.class);
                 intent.putExtra("postion",position);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context_service.startActivity(intent);

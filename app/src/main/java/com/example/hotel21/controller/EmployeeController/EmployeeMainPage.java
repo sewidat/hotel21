@@ -5,8 +5,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -31,6 +33,9 @@ public class EmployeeMainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_main_page);
         updateResandServ();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String data = preferences.getString("user_name", "");
+        System.out.println("inside employee  " + data);
         run();
     }
 
@@ -73,6 +78,5 @@ public class EmployeeMainPage extends AppCompatActivity {
     public void OnclickForDoneReserve(View view) {
     }
 
-    public void updateRoomsbtnOnClick(View view) {
-    }
+
 }

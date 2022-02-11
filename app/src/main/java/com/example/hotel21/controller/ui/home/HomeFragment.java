@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotel21.R;
+import com.example.hotel21.controller.common.MainActivity;
 import com.example.hotel21.controller.rooms_controller.RoomAdapter;
+import com.example.hotel21.model.database.Database;
 import com.example.hotel21.model.room.Room;
 
 import java.util.ArrayList;
@@ -27,11 +29,14 @@ public class HomeFragment extends Fragment {
     public static boolean order = false;
     static RoomAdapter roomAdapter;
 
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
+
     ) {
+
         // false from lowest to highest
         initData();
         RoomAdapter.reserve = false;
@@ -48,24 +53,8 @@ public class HomeFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void initData() {
-        roomList = new ArrayList<>();
-        roomList.add(new Room(1, 3, "typeR", 88, true, "qwerty22", 4));
-        roomList.add(new Room(2, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(3, 3, "typeR", 44, true, "qwerty", 4));
-        roomList.add(new Room(7, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(5, 3, "typeR", 10, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
-        roomList.add(new Room(1, 3, "typeR", 55, true, "qwerty", 4));
+        roomList = Database.getInstance().roomlistforemployee(HomeFragment.this);
+
     }
 
     public static void updateAdapter() {
