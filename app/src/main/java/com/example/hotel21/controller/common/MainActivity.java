@@ -21,6 +21,7 @@ import com.example.hotel21.controller.ui.home.HomeFragment;
 import com.example.hotel21.databinding.ActivityMainBinding;
 import com.example.hotel21.model.database.Database;
 import com.example.hotel21.model.room.Room;
+import com.example.hotel21.model.user.User;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+
+    public static User user ;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("NewApi")

@@ -3,6 +3,7 @@ package com.example.hotel21.model.database;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.ListView;
@@ -45,6 +46,7 @@ import com.example.hotel21.controller.AdminController.ServicesAdapter;
 import com.example.hotel21.controller.common.MainActivity;
 import com.example.hotel21.controller.common.SignUpActivity;
 import com.example.hotel21.controller.EmployeeController.EmployeeListViewItem;
+import com.example.hotel21.controller.rooms_controller.ReservePage;
 import com.example.hotel21.controller.ui.home.HomeFragment;
 import com.example.hotel21.model.reserve.Reserve;
 import com.example.hotel21.model.room.Room;
@@ -290,6 +292,34 @@ public class Database extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    public static ArrayList<Service> services ;
+
+    public static void getServices(AppCompatActivity appCompatActivity) {
+        RequestQueue queue;
+        queue = Volley.newRequestQueue(appCompatActivity.getApplicationContext());
+        String url = "http://10.0.2.2/hotel21/getServicesForAdmin.php";
+
+        ArrayList<Service> tempServices = new ArrayList<>();
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
+                null, response -> {
+            try {
+                for (int i = 0; i < response.length(); i++) {
+                        JSONObject obj = response.getJSONObject(i);
+                    tempServices.add(new Service(obj.getInt("service_id"), obj.getString("service_description"), obj.getInt("service_price")));
+                }
+                services = tempServices;
+            }catch (JSONException exception) {
+                Log.d("Error", exception.toString());
+            }
+        }, error -> System.out.println(error.getMessage()));
+
+        queue.add(request);
+
+
+    }
+
+
     public void getServicesForAdmin(ServicePageForAdmin servicePageForAdmin, ListView listView) {
         RequestQueue queue;
         queue = Volley.newRequestQueue(servicePageForAdmin.getApplicationContext());
@@ -445,7 +475,7 @@ public class Database extends AppCompatActivity {
             requestQueue.add(stringRequest);
 
         }
-        User user = new User(userName, Password, firstname, lastname, visacard, emaill, phoneN, usergender, Integer.parseInt(user_age));
+        User user = new User(userName, Password, firstname, lastname, visacard, emaill, phoneN, usergender, user_age);
 
     }
 
@@ -724,6 +754,39 @@ public class Database extends AppCompatActivity {
     }
 
 
+    public void listRoomsforuser(LonginActivity activity) throws InterruptedException {
+//        listRoom.clear();
+        ArrayList<Room> listRoom = new ArrayList<>();
+
+
+        RequestQueue queue;
+        queue = Volley.newRequestQueue(activity.getApplicationContext());
+        String url = "http://10.0.2.2/hotel21/getroomforuser.php";
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
+                null, response -> {
+            listRoom.clear();
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    System.out.println(response);
+
+                    JSONObject obj = response.getJSONObject(i);
+                    listRoom.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"), obj.getInt("day_price"), obj.getString("room_information"), obj.getInt("number_of_bed")));
+
+                } catch (JSONException exception) {
+                    Log.d("Error", exception.toString());
+                }
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                HomeFragment.roomList = listRoom;
+            }
+
+        }, error -> System.out.println(error.getMessage()));
+
+
+        queue.add(request);
+
+    }
     public List<Room> listRoomsforuser(Context context) throws InterruptedException {
 //        listRoom.clear();
         ArrayList<Room> listRoom = new ArrayList<>();
@@ -738,7 +801,6 @@ public class Database extends AppCompatActivity {
             for (int i = 0; i < response.length(); i++) {
                 try {
                     System.out.println(response);
-
                     JSONObject obj = response.getJSONObject(i);
                     listRoom.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"), obj.getInt("day_price"), obj.getString("room_information"), obj.getInt("number_of_bed")));
                     System.out.println("we are done");
@@ -755,7 +817,6 @@ public class Database extends AppCompatActivity {
 
         return listRoom;
     }
-
     public ArrayList<Room> roomlistforemployee(HomeFragment homeFragment) {
 //        ArrayList<Room> list  = listRoom;
 //        System.out.println("hello meso you are inside  " + listRoom );
@@ -763,6 +824,53 @@ public class Database extends AppCompatActivity {
 //
 //        return list;
         return null;
+    }
+
+
+
+    public void addReservebyuser(Reserve reserve , ReservePage reservePage){
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(reservePage.getApplicationContext());
+
+        String url = "http://10.0.2.2:80/hotel21/addReserve.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response + "--------");
+
+                if (response.contains("done")) {
+                    System.out.println(response + "  insdie ");
+                    Toast.makeText(reservePage, "valid Reserve", Toast.LENGTH_SHORT).show();
+
+                } else if (response.contains("error")) {
+                    Toast.makeText(reservePage, "Invalid log in", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(reservePage, error.toString().trim(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("user_id",String.valueOf(reserve.getCustomer_id()));
+                data.put("room_id", String.valueOf(reserve.getRoom_id()));
+                data.put("start_time", String.valueOf(reserve.getStart_time()));
+                data.put("end_time", String.valueOf(reserve.getEnd_time()));
+                data.put("total_price", String.valueOf(reserve.getTotal_price()));
+
+
+                return data;
+            }
+
+        };
+        requestQueue.add(stringRequest);
+
     }
 }
 

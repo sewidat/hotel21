@@ -9,4 +9,5 @@ public interface IServiceDa {
     void getallservicces(EmployeeMainPage employeeMainPage, ListView listView);
     void getservicesforadmin(ServicePageForAdmin  servicePageForAdmin , ListView listView);
     void addservicesfromadmin(ServicePageForAdmin servicePageForAdmin,String service_description ,String service_price);
+
 }

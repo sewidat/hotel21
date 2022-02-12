@@ -30,6 +30,7 @@ public class HomeFragment extends Fragment {
     public static boolean order = false;
     static RoomAdapter roomAdapter;
 
+    Context context;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(
@@ -40,14 +41,14 @@ public class HomeFragment extends Fragment {
 
         // false from lowest to highest
         RoomAdapter.reserve = false;
+        context = container.getContext();
+        Task task = new Task();
         View view = inflater.inflate(R.layout.activity_main_screen, container, false);
         roomAdapter = new RoomAdapter(container.getContext(), roomList);
         recyclerView = view.findViewById(R.id.rooms_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(roomAdapter);
-        Thread thread = new Thread(new Task(view.getContext()));
-        thread.start();
         return view;
 
     }
@@ -56,37 +57,25 @@ public class HomeFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void initData() {
         try {
-//            roomList = (ArrayList<Room>) Database.getInstance().listRoomsforuser(context);
-            System.out.println();
-        } catch (Exception e) {
+            roomList = (ArrayList<Room>) Database.getInstance().listRoomsforuser(context);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        recyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                roomAdapter.notifyDataSetChanged();
+            }
+        });
 
     }
 
     class Task implements Runnable {
-        Context context;
-
-        public Task(Context context) {
-            this.context = context;
-        }
 
         @Override
         public void run() {
-            try {
-                roomList = (ArrayList<Room>) Database.getInstance().listRoomsforuser(context);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            recyclerView.post(new Runnable() {
-                @Override
-                public void run() {
-                    roomAdapter.notifyDataSetChanged();
-                }
-            });
+            initData();
         }
-
 
     }
 

@@ -11,9 +11,11 @@ public class ServiceDa implements  IServiceDa {
     public void getallservicces(EmployeeMainPage employeeMainPage, ListView listView) {
         Database database = Database.getInstance();
         database.getListViewForEmployee(employeeMainPage,listView);
+    }
 
-
-
+    public void getallservices(EmployeeMainPage employeeMainPage, ListView listView) {
+        Database database = Database.getInstance();
+        database.getListViewForEmployee(employeeMainPage,listView);
     }
 
     @Override

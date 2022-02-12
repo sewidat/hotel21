@@ -1,22 +1,16 @@
 package com.example.hotel21.controller.AdminController;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.common.LonginActivity;
 import com.example.hotel21.model.service.Service;
 
 import java.util.ArrayList;
@@ -44,7 +38,7 @@ import java.util.ArrayList;
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         int service_id = getItem(position).getService_id();
-        String service_descrption = getItem(position).getRoom_descrption();
+        String service_descrption = getItem(position).getService_description();
         int  service_price = getItem(position).getService_price();
 
         LayoutInflater inflater  = LayoutInflater.from(context_service);

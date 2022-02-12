@@ -4,12 +4,12 @@ public class Service {
 
 
         int service_id ;
-        String room_descrption;
+        String service_description;
         int service_price ;
 
-        public Service(int service_id, String room_descrption, int service_price) {
+        public Service(int service_id, String service_description, int service_price) {
             this.service_id = service_id;
-            this.room_descrption = room_descrption;
+            this.service_description = service_description;
             this.service_price = service_price;
         }
 
@@ -21,12 +21,12 @@ public class Service {
             this.service_id = service_id;
         }
 
-        public String getRoom_descrption() {
-            return room_descrption;
+        public String getService_description() {
+            return service_description;
         }
 
-        public void setRoom_descrption(String room_descrption) {
-            this.room_descrption = room_descrption;
+        public void setService_description(String service_description) {
+            this.service_description = service_description;
         }
 
         public int getService_price() {

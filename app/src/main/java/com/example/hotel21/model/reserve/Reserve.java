@@ -21,7 +21,7 @@ public class Reserve {
     private boolean is_done;
     private double total_price;
 
-    public Reserve(int reserve_id, int room_id, int customer_id, String start_time, String end_time, boolean is_done, double total_price) {
+    public Reserve(int room_id, int customer_id, String start_time, String end_time, boolean is_done, double total_price) {
         this.reserve_id = reserve_id;
         this.room_id = room_id;
         this.customer_id = customer_id;
