@@ -83,6 +83,12 @@ public class ReservePage extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        servicesAdapter.notifyDataSetChanged();
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void proceed(View view) {
 /*
