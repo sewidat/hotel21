@@ -61,63 +61,6 @@ public class SignUpActivity extends AppCompatActivity {
         iUserDa.addUser(SignUpActivity.this,userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Age);
 
     }
-    private void addUser(String userName, String Password, String firstname
-            ,String lastname , String visacard , String emaill, String phoneN,String usergender,String user_age) {
-        if(userName.isEmpty()||Password.isEmpty()||firstname.isEmpty()||lastname.isEmpty()||visacard.isEmpty()||
-                emaill.isEmpty()||  phoneN.isEmpty()||user_age.isEmpty()||usergender.isEmpty()){
-            Toast.makeText(this, "Please fill all data Requierd", Toast.LENGTH_SHORT).show();
-        }else {
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-            String url = "http://10.0.2.2:81/hotel21/signup.php";
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-
-                @Override
-                public void onResponse(String response) {
-                    System.out.println(response + "-------------");
-                    System.out.println(response.equalsIgnoreCase("success") + "////////////////");
-
-                    if (response.contains("success")) {
-                        System.out.println("on if statment");
-                        Toast.makeText(SignUpActivity.this, "valid log in", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignUpActivity.this, LonginActivity.class);
-                        startActivity(intent);
-                        finish();
-
-
-                    } else if (response.contains("failure")) {
-                        Toast.makeText(SignUpActivity.this, "Invalid log in", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(SignUpActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
-                }
-            }) {
-                @Nullable
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> data = new HashMap<>();
-                    data.put("user_name", userName);
-                    data.put("user_password", Password);
-                    data.put("first_name", firstname);
-                    data.put("last_name", lastname);
-                    data.put("visa_number", visacard);
-                    data.put("user_email",emaill );
-                    data.put("user_phone", phoneN);
-                    data.put("user_gender", usergender);
-                    data.put("user_age", user_age);
-
-                    return data;
-                }
-
-            };
-            requestQueue.add(stringRequest);
-        }
-
-        }
-//        User user = new User(userName,Password,firstname,lastname,visacard,emaill,phoneN,usergender,Integer.parseInt(user_age));
 
     }
 

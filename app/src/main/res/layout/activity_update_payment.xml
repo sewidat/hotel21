@@ -6,6 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".controller.user_controller.UpdatePayment">
 
+    <TextView
+        android:id="@+id/Oldvisanumber_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="100dp"
+        android:ems="10"
+        android:hint="Cuurent visa Number"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/Oldvisanumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Oldvisanumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="100dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:focusable="false"
+        app:layout_constraintBottom_toTopOf="@+id/newvisanumber_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/newvisanumber_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="223dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="New VISA Number"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
@@ -34,5 +85,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        android:onClick="updatevisabtnOnClick"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

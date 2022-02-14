@@ -76,7 +76,7 @@ public class LonginActivity extends AppCompatActivity {
 
 
     public void AccountonClik(View view) {
-        Intent intent = new Intent(this, AdminMainPage.class);
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
 
@@ -105,8 +105,7 @@ public class LonginActivity extends AppCompatActivity {
                     user = gson.fromJson(response, User.class);
                     System.out.println();
                     // response.getString("user_type").equals("c")
-                    try {
-                        if (user.getUser_type() == 'c') {
+                    try { if (user.getUser_type() == 'c') {
                             try {
 
                                 Database.getInstance().listRoomsforuser(thisObject);
@@ -182,60 +181,7 @@ public class LonginActivity extends AppCompatActivity {
 
         }
     }
-   /* public void Loginuser(RoomsListViewForEmployee roomsListViewForEmployee, ListView listView) {
-        RequestQueue queue;
-        String user_name = username.getText().toString();
-        String user_password = password.getText().toString();
-        queue = Volley.newRequestQueue(roomsListViewForEmployee.getApplicationContext());
-        String url = "http://10.0.2.2/hotel21/login.php";
-        ArrayList<Room> arrayList = new ArrayList<>();
 
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
-                null, response -> {
-            ArrayList<Room> items = new ArrayList<>();
-            for (int i = 0; i < response.length(); i++) {
-                try {
-
-                    JSONObject obj = response.getJSONObject(i);
-                    if(obj.getString("user_type") == "c"){
-                        try {
-
-                            Database.getInstance().listRoomsforuser(thisObject);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        Toast.makeText(LonginActivity.this, "malik" + password, Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(LonginActivity.this, MainActivity.class);
-                        intent.putExtra("user_name", user_name);
-
-                        startActivity(intent);
-
-                    }
-                    if (chx.isChecked()) {
-                        editor.putString(NAME, user_name);
-                        editor.putString(PASS, user_password);
-                        editor.putBoolean(FLAG, true);
-                        editor.commit();
-                    }
-
-
-                } catch (JSONException exception) {
-                    Log.d("Error", exception.toString());
-                }
-            }
-
-
-
-        }, error -> System.out.println(error.getMessage()));
-
-        queue.add(request);
-
-    }*/
 
 
     public void remember() {

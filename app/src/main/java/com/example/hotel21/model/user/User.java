@@ -15,10 +15,10 @@ public class User {
     private String user_email;
     private String user_phone;
     private String user_gender;
-    private String user_age;
+    private int user_age;
     private char user_type;
 
-    public User(int user_id, String user_name, String user_password, String first_name, String last_name, String visa_number, String user_email, String user_phone, String user_gender, String user_age, char user_type) {
+    public User(int user_id, String user_name, String user_password, String first_name, String last_name, String visa_number, String user_email, String user_phone, String user_gender, int user_age, char user_type) {
         this.user_id = user_id;
         this.user_name = user_name;
         this.user_password = user_password;
@@ -36,7 +36,7 @@ public class User {
 
     }
 
-    public User(String userName, String password, String firstname, String lastname, String visacard, String emaill, String phoneN, String usergender, String user_age) {
+    public User(String userName, String password, String firstname, String lastname, String visacard, String emaill, String phoneN, String usergender, int user_age) {
         this.user_name = user_name;
         this.user_password = user_password;
         this.first_name = first_name;
@@ -126,11 +126,11 @@ public class User {
         this.user_gender = user_gender;
     }
 
-    public String getUser_age() {
+    public int getUser_age() {
         return user_age;
     }
 
-    public void setUser_age(String user_age) {
+    public void setUser_age(int user_age) {
         this.user_age = user_age;
     }
 

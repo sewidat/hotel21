@@ -1,5 +1,6 @@
 package com.example.hotel21.model.database;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -48,6 +49,7 @@ import com.example.hotel21.controller.common.SignUpActivity;
 import com.example.hotel21.controller.EmployeeController.EmployeeListViewItem;
 import com.example.hotel21.controller.rooms_controller.ReservePage;
 import com.example.hotel21.controller.ui.home.HomeFragment;
+import com.example.hotel21.controller.user_controller.UserDetailsUpdate;
 import com.example.hotel21.model.reserve.Reserve;
 import com.example.hotel21.model.room.Room;
 import com.example.hotel21.model.service.Service;
@@ -62,6 +64,7 @@ public class Database extends AppCompatActivity {
     UpdateAdapter updateAdapter;
     EmployeesListviewAdpater employeesListviewAdater;
     RoomManageAdapterE roomManageAdapterE;
+
 //    public static ArrayList<Room> listRoom = new ArrayList<>();
 
 
@@ -80,28 +83,29 @@ public class Database extends AppCompatActivity {
     }
 
 
-    public void updateUser(User user, SignUpActivity signUpActivity) {
+    public void updateUser(User user, Activity activity) {
 
         String url = "http://10.0.2.2/hotel21/updateUser.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.equals("success")) {
-                    Toast.makeText(signUpActivity, "Update Done successfully.", Toast.LENGTH_SHORT).show();
+                if (response.contains("updated successfully")) {
+                    Toast.makeText(activity, "Update Done successfully.", Toast.LENGTH_SHORT).show();
                 } else if (response.equals("failure")) {
-                    Toast.makeText(signUpActivity, "Invalid Update !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Invalid Update !!!", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(signUpActivity, error.toString().trim(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, error.toString().trim(), Toast.LENGTH_SHORT).show();
             }
         }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> data = new HashMap<>();
+                data.put("user_id",String.valueOf(user.getUser_id()));
                 data.put("user_name", user.getUser_name());
                 data.put("user_password", user.getUser_password());
                 data.put("first_name", user.getFirst_name());
@@ -115,7 +119,7 @@ public class Database extends AppCompatActivity {
                 return data;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(signUpActivity.getApplicationContext());
+        RequestQueue requestQueue = Volley.newRequestQueue(activity.getApplicationContext());
         requestQueue.add(stringRequest);
     }
 
@@ -383,6 +387,7 @@ public class Database extends AppCompatActivity {
     }
 
 
+
     public void setServicesfromadmin(ServicePageForAdmin servicePageForAdmin, String Des, String price) {
         RequestQueue requestQueue = Volley.newRequestQueue(servicePageForAdmin.getApplicationContext());
         String url = "http://10.0.2.2:80/hotel21/AddservicesFromAdmin.php";
@@ -437,15 +442,12 @@ public class Database extends AppCompatActivity {
                     System.out.println(response.equalsIgnoreCase("success") + "////////////////");
 
                     if (response.contains("success")) {
-                        System.out.println("on if statment");
-                        Toast.makeText(signUpActivity, "valid log in", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(signUpActivity, LonginActivity.class);
                         startActivity(intent);
-                        finish();
 
 
-                    } else if (response.contains("failure")) {
-                        Toast.makeText(signUpActivity, "Invalid log in", Toast.LENGTH_SHORT).show();
+                    } else if (response.contains("user already exist")) {
+                        Toast.makeText(signUpActivity, "user already exist", Toast.LENGTH_SHORT).show();
                     }
                 }
             }, new Response.ErrorListener() {
@@ -475,8 +477,7 @@ public class Database extends AppCompatActivity {
             requestQueue.add(stringRequest);
 
         }
-        User user = new User(userName, Password, firstname, lastname, visacard, emaill, phoneN, usergender, user_age);
-
+        User user = new User(userName, Password, firstname, lastname, visacard, emaill, phoneN, usergender, Integer.parseInt(user_age));
     }
 
     public void getReservitionForEmployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, ListView listView) {

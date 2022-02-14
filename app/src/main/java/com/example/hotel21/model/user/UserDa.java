@@ -1,6 +1,7 @@
 package com.example.hotel21.model.user;
 
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.widget.CheckBox;
 import android.widget.ListView;
@@ -10,6 +11,7 @@ import com.example.hotel21.controller.AdminController.AdminaddEmployees;
 import com.example.hotel21.controller.EmployeeController.UpdateReservitionEmp_Acitivty;
 import com.example.hotel21.controller.common.LonginActivity;
 import com.example.hotel21.controller.common.SignUpActivity;
+import com.example.hotel21.controller.user_controller.UserDetailsUpdate;
 import com.example.hotel21.model.database.Database;
 
 import java.util.List;
@@ -22,9 +24,9 @@ public class UserDa implements IUserDa {
         return null;
     }
     @Override
-    public void  updateUser(User user , SignUpActivity signUpActivity) {
+    public void  updateUser(User user , Activity userDetailsUpdate) {
         Database database = Database.getInstance();
-        database.updateUser(user,signUpActivity);
+        database.updateUser(user ,userDetailsUpdate);
     }
 
     @Override

@@ -85,23 +85,27 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButtonF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/female" />
+            android:text="@string/female"
+            android:onClick="onRadioButtonClicked"
+            />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioButtonM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/male" />
+            android:text="@string/male"
+            android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/savebtnuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="301dp"
@@ -113,7 +117,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
+        android:onClick="savebtnclick"/>
 
     <TextView
         android:id="@+id/textView5"

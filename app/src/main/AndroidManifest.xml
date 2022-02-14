@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".controller.rooms_controller.AdditionalServicesAdapter"
+            android:exported="false" />
+        <activity
             android:name=".controller.common.Aboutus"
             android:exported="false" />
         <activity

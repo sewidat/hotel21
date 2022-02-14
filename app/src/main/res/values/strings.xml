@@ -30,4 +30,5 @@
     <string name="title_activity_navigation">Navigation</string>
     <string name="title_activity_navigation_main">NavigationActivityMain</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string name="_0">0$</string>
 </resources>

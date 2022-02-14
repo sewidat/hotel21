@@ -7,8 +7,25 @@
     android:background="@color/head"
     tools:context=".controller.user_controller.UpdateSecurityDetails">
 
+
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/username_update_pass_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:inputType="text"
+        android:editable="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toTopOf="@+id/userUpdatePasswordEdittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/userUpdatePasswordEdittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
@@ -18,13 +35,13 @@
         android:ems="10"
         android:hint="New Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword2"
+        app:layout_constraintBottom_toTopOf="@+id/userRewritePasswordEdittext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/userRewritePasswordEdittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
@@ -37,7 +54,7 @@
         app:layout_constraintBottom_toTopOf="@id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/userUpdatePasswordEdittext" />
 
     <Button
         android:id="@+id/button3"
@@ -51,6 +68,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/userRewritePasswordEdittext"
+        android:onClick="submitbtnOnClick"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
