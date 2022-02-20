@@ -14,13 +14,19 @@
         android:theme="@style/Theme.Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".controller.EmployeeController.EmployeeUpdateHisInformation"
+            android:exported="false" />
+        <activity
+            android:name=".controller.EmployeeController.EmployeeFirstActivity"
+            android:exported="false" />
+        <activity
             android:name=".controller.rooms_controller.AdditionalServicesAdapter"
             android:exported="false" />
         <activity
             android:name=".controller.common.Aboutus"
             android:exported="false" />
         <activity
-            android:name=".controller.AdminController.RoomMainAcivityForAdmin"
+            android:name=".controller.AdminController.RoomMainActivityForAdmin"
             android:exported="false" />
         <activity
             android:name=".controller.AdminController.UpdateRoomInformations"
@@ -60,7 +66,7 @@
             android:name=".controller.rooms_controller.RoomView"
             android:exported="false" />
         <activity
-            android:name=".controller.AdminController.AdminaddEmployees"
+            android:name=".controller.AdminController.AdminAddEmployee"
             android:exported="true" />
         <activity
             android:name=".controller.AdminController.AdminManageEmployee"

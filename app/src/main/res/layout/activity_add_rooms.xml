@@ -37,7 +37,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select the type of Room"
+            android:text="@string/select_the_type_of_room"
             android:textStyle="bold"/>
         <Spinner
             android:layout_marginTop="10dp"
@@ -52,14 +52,14 @@
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"
-            android:hint="Price of Room"
+            android:hint="@string/price_of_room"
             />
         <TextView
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Room Information :"
+            android:text="@string/room_information"
             android:gravity="center"
 
             />
@@ -76,12 +76,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Number Of Beds"/>
+            android:hint="@string/number_of_beds"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Room"
-            android:onClick="btnaddRoomOnClik"/>
+            android:onClick="btnAddRoomOnClick"/>
     </LinearLayout>
 
 

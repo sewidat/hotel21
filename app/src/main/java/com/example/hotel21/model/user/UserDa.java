@@ -7,11 +7,10 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 
 import com.example.hotel21.controller.AdminController.AdminRemoveEmployee;
-import com.example.hotel21.controller.AdminController.AdminaddEmployees;
-import com.example.hotel21.controller.EmployeeController.UpdateReservitionEmp_Acitivty;
+import com.example.hotel21.controller.AdminController.AdminAddEmployee;
+import com.example.hotel21.controller.EmployeeController.EmployeeUpdateHisInformation;
 import com.example.hotel21.controller.common.LonginActivity;
 import com.example.hotel21.controller.common.SignUpActivity;
-import com.example.hotel21.controller.user_controller.UserDetailsUpdate;
 import com.example.hotel21.model.database.Database;
 
 import java.util.List;
@@ -43,13 +42,16 @@ public class UserDa implements IUserDa {
     }
 
     @Override
-    public void Updatedatafromemployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, String username, String Password, String visacard, String emaill, String phoneN, String user_age) {
+    public void Updatedatafromemployee(EmployeeUpdateHisInformation updateReservitionEmp_acitivty, String user_name, String password_ue, String firstname, String lastname, String visacard, String emaill, String phoneN ,String usergender,String user_age) {
         Database database = Database.getInstance();
-        database.Updatedatafromemployee(updateReservitionEmp_acitivty,username,Password,visacard,emaill, phoneN,user_age);
+        database.Updatedatafromemployee(updateReservitionEmp_acitivty ,user_name,password_ue,firstname ,lastname,visacard,emaill, phoneN,usergender,user_age);
+
     }
 
+
+
     @Override
-    public void adminaddEmplyoee(AdminaddEmployees adminaddEmployees, String username, String userpassword) {
+    public void adminaddEmplyoee(AdminAddEmployee adminaddEmployees, String username, String userpassword) {
         Database database = Database.getInstance();
         database.AdmingAddEmployee(adminaddEmployees,username,userpassword);
 

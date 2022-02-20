@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/adminbody"
-    tools:context=".controller.AdminController.RoomMainAcivityForAdmin"
+    tools:context=".controller.AdminController.RoomMainActivityForAdmin"
     tools:ignore="MissingDefaultResource">
     <LinearLayout
         android:orientation="vertical"
@@ -23,7 +23,7 @@
                 android:id="@+id/adminpagetextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manage Rooms"
+                android:text="@string/manage_rooms_byAdmin"
                 android:textSize="22sp"
                 android:textColor="#FFFFFF"
                 />
@@ -31,7 +31,7 @@
                 android:layout_below="@+id/adminpagetextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 items"
+                android:text="@string/_2_items_adminRoomPage"
                 android:textSize="14sp"
                 android:layout_marginTop="5dp"
                 android:textColor="#52BAFF"
@@ -84,13 +84,13 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:src="@drawable/adding"
-                        android:onClick="btnaddRoomOnClik"
+                        android:onClick="btnAddRoomOnClick"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Add Room"
+                        android:text="@string/add_room"
                         android:textSize="18sp"
                         android:textColor="#6f6f6f"
 
@@ -119,14 +119,14 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:src="@drawable/up"
-                        android:onClick="updateRoomsbtnOnClik"
+                        android:onClick="updateRoomsBtnOnClick"
 
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Update Room"
+                        android:text="@string/update_room"
                         android:textSize="18sp"
                         android:textColor="#6f6f6f"
 

@@ -16,7 +16,7 @@
             <EditText
                 android:id="@+id/service_descriptionID"
                 android:layout_width="wrap_content"
-                android:hint="Service_Description"
+                android:hint="@string/service_description_forAdmin"
                 android:layout_height="120dp"
                 android:layout_marginTop="50dp"
                 />
@@ -26,14 +26,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="50dp"
-                android:hint="Service_price"
+                android:hint="@string/service_price_forAdmin"
                 />
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/adminaddservbtn"
-                android:text="Insert"
-                android:onClick="addservicesonbtn"
+                android:text="@string/insert_forAdmin"
+                android:onClick="addServicesOnBtn"
                 />
             </LinearLayout>
 
@@ -45,14 +45,14 @@
         <TextView
             android:layout_column="0"
             android:layout_span="1"
-            android:text="ServiceID"
+            android:text="@string/serviceid_forAdmin"
             android:padding="10dp"
             android:textStyle="bold"
            />
         <TextView
             android:layout_column="1"
             android:layout_span="6"
-            android:text="Service description"
+            android:text="@string/service_description_forAdmins"
             android:padding="10dp"
             android:textStyle="bold"
             />
@@ -62,7 +62,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="Service Price"
+            android:text="@string/service_price_forAdmins"
             android:textStyle="bold" />
 
 
@@ -82,8 +82,8 @@
             android:layout_height="match_parent"
             android:layout_below="@id/listview3"
             android:layout_marginTop="10dp"
-            android:text="Refresh"
-            android:onClick="RefreshListviewforadminbtn"
+            android:text="@string/refresh_forAdmin"
+            android:onClick="refreshListViewForAdminBtn"
             />
     </TableRow>
 

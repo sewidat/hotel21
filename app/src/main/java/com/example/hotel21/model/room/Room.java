@@ -37,6 +37,10 @@ public class Room {
 
 
 
+    String image_url ;
+
+
+
     public Room(int room_id, int floor_number, String type, int price , boolean is_available, String room_information, int number_of_bed) {
         this.room_id = room_id;
         this.floor_number = floor_number;
@@ -55,6 +59,17 @@ public class Room {
         this.room_information = room_information;
         this.number_of_bed = number_of_bed ;
     }
+
+    public Room(int room_id, int floor_number, String type, int price ,  String room_information, int number_of_bed , String image_url) {
+        this.room_id = room_id;
+        this.floor_number = floor_number;
+        this.type = type ;
+        this.price = price;
+        this.room_information = room_information;
+        this.number_of_bed = number_of_bed ;
+        this.image_url = image_url ;
+
+    }
     public Room( int floor_number, String type, int price ,  String room_information, int number_of_bed) {
         this.room_id = room_id;
         this.floor_number = floor_number;
@@ -65,7 +80,13 @@ public class Room {
     }
 
 
+    public String getImage_url() {
+        return image_url;
+    }
 
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
 
     public int getRoom_id() {
         return room_id;
@@ -98,6 +119,9 @@ public class Room {
     public void setPrice(int price) {
         this.price = price;
     }
+
+
+
 
     public boolean isIs_available() {
         return is_available;

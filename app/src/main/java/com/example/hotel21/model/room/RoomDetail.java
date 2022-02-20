@@ -8,4 +8,19 @@ import lombok.Data;
 public class RoomDetail {
     private String detail;
     private int iconID;
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public int getIconID() {
+        return iconID;
+    }
+
+    public void setIconID(int iconID) {
+        this.iconID = iconID;
+    }
 }

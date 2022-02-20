@@ -19,15 +19,15 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hotel21.R;
 import com.example.hotel21.controller.common.LonginActivity;
-import com.example.hotel21.model.room.Room;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class AddRoomsActivity extends AppCompatActivity {
     EditText edtFloorNumber  , edtPriceOfRooms , edtRoomInformation, edtNumberOfBedds ;
-    Spinner spinner_for_roomtype ;
+    Spinner spinnerForRoomType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +37,25 @@ public class AddRoomsActivity extends AppCompatActivity {
         edtPriceOfRooms = findViewById(R.id.IDpriceofRoom);
         edtRoomInformation = findViewById(R.id.IdRoomInformations);
         edtNumberOfBedds = findViewById(R.id.IdNumberOfBeds);
-        spinner_for_roomtype = findViewById(R.id.IDtypeofRooms);
+        spinnerForRoomType = findViewById(R.id.IDtypeofRooms);
 
     }
-    public void btnaddRoomOnClik(View view) {
-        int Number_of_floor = Integer.parseInt(edtFloorNumber.getText().toString());
-        Double Price_of_Rooms = Double.parseDouble(edtPriceOfRooms.getText().toString());
-        String Room_in_info = edtRoomInformation.getText().toString();
-        int Number_of_beds = Integer.parseInt(edtNumberOfBedds.getText().toString());
-        String Room_type = spinner_for_roomtype.getSelectedItem().toString();
-        addRoom(Number_of_floor,Room_type,Price_of_Rooms,Room_in_info,Number_of_beds);
+    public void btnAddRoomOnClick(View view) {
+        int numberOfFloor = Integer.parseInt(edtFloorNumber.getText().toString());
+        Double nightPrice = Double.parseDouble(edtPriceOfRooms.getText().toString());
+        String roomInfo = edtRoomInformation.getText().toString();
+        int bedsNumber = Integer.parseInt(edtNumberOfBedds.getText().toString());
+        String roomType = spinnerForRoomType.getSelectedItem().toString();
+
+        ArrayList<String> images = new ArrayList<>();
+        images.add("http://10.0.2.2:80/hotel21/photos/1.jpeg");
+        images.add("http://10.0.2.2:80/hotel21/photos/2.jpg");
+        images.add("http://10.0.2.2:80/hotel21/photos/3.jpg");
+        images.add("http://10.0.2.2:80/hotel21/photos/4.jpg");
+
+        int random_int = (int)Math.floor(Math.random()*(4-1+1)+1);
+        String image_url = images.get(random_int);
+        addRoom(numberOfFloor,roomType,nightPrice,roomInfo,bedsNumber , image_url);
     }
 
 
@@ -56,7 +65,7 @@ public class AddRoomsActivity extends AppCompatActivity {
 
 
     private void addRoom(int Number_of_floor, String Room_type, Double Price_of_Rooms,String Room_in_info
-    ,int Number_of_beds) {
+    ,int Number_of_beds  ,String image_url) {
         if (Number_of_floor == 0 || Price_of_Rooms == 0 || Room_in_info.isEmpty() || Number_of_beds == 0 ||
                 Room_type.isEmpty()) {
             Toast.makeText(this, "Please fill all data Requierd", Toast.LENGTH_SHORT).show();
@@ -95,6 +104,8 @@ public class AddRoomsActivity extends AppCompatActivity {
                     data.put("day_price", String.valueOf(Price_of_Rooms));
                     data.put("room_information", Room_in_info);
                     data.put("number_of_bed", String.valueOf(Number_of_beds));
+                    data.put("image_url", String.valueOf(image_url));
+
                     return data;
                 }
 

@@ -35,6 +35,7 @@ import com.example.hotel21.controller.AdminController.AddRoomsActivity;
 import com.example.hotel21.controller.AdminController.AdminMainPage;
 import com.example.hotel21.controller.AdminController.RoomManageAdapterE;
 import com.example.hotel21.controller.AdminController.RoomsListViewForEmployee;
+import com.example.hotel21.controller.EmployeeController.EmployeeFirstActivity;
 import com.example.hotel21.controller.EmployeeController.EmployeeMainPage;
 import com.example.hotel21.controller.ui.home.HomeFragment;
 import com.example.hotel21.model.database.Database;
@@ -133,7 +134,7 @@ public class LonginActivity extends AppCompatActivity {
 //response.getString("user_type").equals("c")
                         } else if (user.getUser_type() == 'E') {
                             Toast.makeText(LonginActivity.this, "hello employee", Toast.LENGTH_SHORT);
-                            Intent intent = new Intent(LonginActivity.this, EmployeeMainPage.class);
+                            Intent intent = new Intent(LonginActivity.this, EmployeeFirstActivity.class);
                             intent.putExtra("user_name", user_name);
                             startActivity(intent);
 

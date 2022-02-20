@@ -11,7 +11,9 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.example.hotel21.R;
+import com.example.hotel21.model.room.Room;
 import com.example.hotel21.model.room.RoomDetail;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -32,20 +34,24 @@ public class RoomView extends AppCompatActivity {
         button = findViewById(R.id.button5);
         Intent intent = getIntent();
         boolean reserve = intent.getBooleanExtra("reserve", false);
-        if (reserve){
+        if (reserve) {
             button.setVisibility(View.GONE);
         }
         roomID = Integer.parseInt(intent.getStringExtra("roomID"));
         position = intent.getIntExtra("position", 0);
-        int imageID = intent.getIntExtra("image", R.drawable.hotel);
+        String imageID = intent.getStringExtra("image");
         Log.d("roomId", roomID + "");
-        imageView.setImageResource(imageID);
+//        imageView.setImageResource(imageID);
+        Picasso.get().load(imageID).into(imageView);
         ArrayList<RoomDetail> roomDetails = new ArrayList<>();
-        roomDetails.add(new RoomDetail("detail1", R.drawable.ic_baseline_info_24));
-        roomDetails.add(new RoomDetail("detail1", R.drawable.ic_baseline_info_24));
-        roomDetails.add(new RoomDetail("detail1", R.drawable.ic_baseline_info_24));
-        roomDetails.add(new RoomDetail("detail1", R.drawable.ic_baseline_info_24));
-        roomDetails.add(new RoomDetail("detail1", R.drawable.ic_baseline_info_24));
+        Room room = RoomAdapter.roomList.get(position);
+        roomDetails.add(new RoomDetail("price: " + room.getPrice(), android.R.drawable.ic_menu_info_details));
+        roomDetails.add(new RoomDetail("floor number: " + room.getFloor_number(), android.R.drawable.ic_menu_info_details));
+        roomDetails.add(new RoomDetail("number of beds: " + room.getNumber_of_bed(), android.R.drawable.ic_menu_info_details));
+        roomDetails.add(new RoomDetail("type: " + room.getType(), android.R.drawable.ic_menu_info_details));
+        roomDetails.add(new RoomDetail("more: " + room.getRoom_information(),android.R.drawable.ic_menu_info_details));
+
+
         RoomDetailGVAdapter roomDetailGVAdapter = new RoomDetailGVAdapter(this, roomDetails);
         gridView.setAdapter(roomDetailGVAdapter);
     }

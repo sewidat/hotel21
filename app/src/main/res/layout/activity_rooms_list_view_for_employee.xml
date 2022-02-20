@@ -18,7 +18,7 @@
             <TextView
                 android:layout_column="0"
                 android:layout_span="1"
-                android:text="room_id"
+                android:text="@string/room_id_forEmployee"
 
 
                 />
@@ -26,14 +26,14 @@
             <TextView
                 android:layout_column="1"
                 android:layout_span="1"
-                android:text="floor#"
+                android:text="@string/floor_emloyeePage"
 
                 />
 
             <TextView
                 android:layout_column="2"
                 android:layout_span="1"
-                android:text="Type"
+                android:text="@string/type_emloyeePage"
 
 
                 />
@@ -41,21 +41,21 @@
             <TextView
                 android:layout_column="3"
                 android:layout_span="1"
-                android:text="day_price"
+                android:text="@string/day_price_emloyeePage"
 
                 />
 
             <TextView
                 android:layout_column="4"
                 android:layout_span="1"
-                android:text="Room_Info"
+                android:text="@string/room_info_emloyeePage"
 
                 />
             <TextView
                 android:layout_column="5"
                 android:layout_span="1"
                 android:id="@+id/room_number_of_bed_textview_E"
-                android:text="#_of_bed"
+                android:text="@string/of_bed_emloyeePage"
 
                 />
 

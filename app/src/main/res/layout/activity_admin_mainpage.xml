@@ -23,7 +23,7 @@
                 android:id="@+id/adminpagetextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Admin Page"
+                android:text="@string/admin_page"
                 android:textSize="22sp"
                 android:textColor="#FFFFFF"
                 />
@@ -31,7 +31,7 @@
                 android:layout_below="@+id/adminpagetextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6 Items"
+                android:text="@string/_6_items"
                 android:textSize="14sp"
                 android:layout_marginTop="5dp"
                 android:textColor="#52BAFF"
@@ -84,13 +84,13 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:src="@drawable/adding"
-                        android:onClick="addroomOnClik"
+                        android:onClick="addRoomOnClick"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Manage Employee"
+                        android:text="@string/manage_employee"
                         android:textSize="18sp"
                         android:textColor="#6f6f6f"
 
@@ -119,14 +119,14 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:src="@drawable/delete"
-                        android:onClick="deleteroomOnClik"
+                        android:onClick="deleteRoomOnClick"
 
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Manage Services"
+                        android:text="@string/manage_services"
                         android:textSize="18sp"
                         android:textColor="#6f6f6f"
 
@@ -153,13 +153,13 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:src="@drawable/get"
-                        android:onClick="getroomOnClick"
+                        android:onClick="getRoomOnClick"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Manage Rooms"
+                        android:text="@string/manage_rooms"
                         android:textSize="18sp"
                         android:textColor="#6f6f6f"
 
@@ -186,13 +186,13 @@
                         android:layout_width="85dp"
                         android:layout_height="85dp"
                         android:src="@drawable/adding"
-                        android:onClick="LogoutONClik"
+                        android:onClick="logoutOnClick"
                         />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Log out"
+                        android:text="@string/log_out"
                         android:textSize="18sp"
                         android:textColor="#6f6f6f"
 

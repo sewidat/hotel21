@@ -24,8 +24,6 @@ public class AdminRemoveEmployee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_remove_employee);
         run();
-        System.out.println("malik");
-
     }
 
     public void run() {
@@ -36,15 +34,9 @@ public class AdminRemoveEmployee extends AppCompatActivity {
                 () -> {
                     UserFactory userFactory = new UserFactory();
                     IUserDa iUserDa = userFactory.getModel();
-                    iUserDa.getEmployeesforAdmin(this,listView);
-
-
+                    iUserDa.getEmployeesforAdmin(this, listView);
                 }
         );
-
     }
 
-
-    public void OnclickForDoneReserve(View view) {
-    }
 }

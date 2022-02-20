@@ -14,14 +14,14 @@
         <Button
             android:layout_column="0"
             android:layout_span="1"
-            android:text="meso"
+            android:text="@string/back_toEmployeeMainpage"
             android:id="@+id/Up_backBtn"
             android:onClick="Upbackbtn"
             />
         <Button
             android:layout_column="2"
             android:layout_span="2"
-            android:text="Reserve_Done"
+            android:text="@string/reserve_done"
             android:id="@+id/Up_ReserveDone"
             android:onClick="Upreservebtn"
             />
@@ -38,7 +38,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="Reserve_id"
+            android:text="@string/reserve_id_Emp"
             android:textStyle="bold" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="room_id"
+            android:text="@string/room_id_Emp"
             android:textStyle="bold" />
 
         <TextView
@@ -54,7 +54,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="Start_date"
+            android:text="@string/start_date_Emp"
             android:textStyle="bold" />
 
         <TextView
@@ -62,7 +62,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="End_date"
+            android:text="@string/end_date_Emp"
             android:textStyle="bold" />
 
 

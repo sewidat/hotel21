@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotel21.R;
 import com.example.hotel21.model.room.Room;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,10 +45,10 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomVH> {
         holder.price.setText(room.getPrice() + "");
         holder.numberOfBeds.setText(room.getNumber_of_bed() + "");
         holder.info.setText(room.getRoom_information());
-        holder.roomImage.setImageResource(R.drawable.map);
+        Picasso.get().load(room.getImage_url()).into(holder.roomImage);
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, RoomView.class);
-            intent.putExtra("image", R.drawable.map);
+            intent.putExtra("image", "http://10.0.2.2:80/hotel21/photos/2.jpg");
             intent.putExtra("roomID", roomList.get(position).getRoom_id() + "");
             intent.putExtra("position", position);
             intent.putExtra("reserve", reserve);

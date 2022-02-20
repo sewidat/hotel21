@@ -27,7 +27,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="first_name"
+            android:text="@string/first_name_employee"
             android:textStyle="bold" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="Last_name"
+            android:text="@string/last_name_employee"
             android:textStyle="bold" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_span="1"
             android:background="#c0c0c0"
             android:padding="10dp"
-            android:text="Remove_Employee"
+            android:text="@string/remove_employee_byAdmin"
             android:textStyle="bold" />
 
     </TableRow>

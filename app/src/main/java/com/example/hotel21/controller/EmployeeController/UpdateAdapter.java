@@ -38,12 +38,14 @@ public class UpdateAdapter extends ArrayAdapter<Reserve>   {
     private static final  String  TAG  = "EmployeeAdapter" ;
     private Context contextfood;
     int Resource;
+    ArrayList<Reserve> list;
 
 
     public UpdateAdapter(Context context, int resource, ArrayList<Reserve> objects) {
         super(context, resource, objects);
         this.contextfood = context;
         this.Resource = resource;
+        this.list = objects;
     }
 
 //    Class employeeMainPage = EmployeeMainPage.class;

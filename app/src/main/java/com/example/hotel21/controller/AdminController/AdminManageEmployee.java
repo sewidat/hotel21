@@ -23,13 +23,13 @@ public class AdminManageEmployee extends AppCompatActivity {
         textView.setText(data);
     }
 
-    public void removeEmployeeOnClik(View view) {
+    public void removeEmployeeOnClick(View view) {
         Intent intent = new Intent(this,AdminRemoveEmployee.class);
         startActivity(intent);
     }
 
-    public void addEmployeeOnClik(View view) {
-        Intent intent = new Intent(this,AdminaddEmployees.class);
+    public void addEmployeeOnClick(View view) {
+        Intent intent = new Intent(this, AdminAddEmployee.class);
         startActivity(intent);
     }
 }

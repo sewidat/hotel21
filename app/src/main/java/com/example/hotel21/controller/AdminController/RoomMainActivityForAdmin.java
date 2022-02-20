@@ -11,26 +11,26 @@ import android.widget.TextView;
 
 import com.example.hotel21.R;
 
-public class RoomMainAcivityForAdmin extends AppCompatActivity {
-    TextView textView;
+public class RoomMainActivityForAdmin extends AppCompatActivity {
+    TextView userNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_main_acivity_for_admin);
-        textView = findViewById(R.id.NameofadminInRoomMain);
+        userNameTextView = findViewById(R.id.NameofadminInRoomMain);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String data = preferences.getString("user_name", "");
-        textView.setText(data);
+        userNameTextView.setText(data);
     }
 
-    public void btnaddRoomOnClik(View view) {
-        Intent intent = new Intent(RoomMainAcivityForAdmin.this , AddRoomsActivity.class);
+    public void btnAddRoomOnClick(View view) {
+        Intent intent = new Intent(RoomMainActivityForAdmin.this , AddRoomsActivity.class);
         startActivity(intent);
     }
 
-    public void updateRoomsbtnOnClik(View view) {
-        Intent intent = new Intent(RoomMainAcivityForAdmin.this , RoomsListViewForEmployee.class);
+    public void updateRoomsBtnOnClick(View view) {
+        Intent intent = new Intent(RoomMainActivityForAdmin.this , RoomsListViewForEmployee.class);
         startActivity(intent);
     }
 }

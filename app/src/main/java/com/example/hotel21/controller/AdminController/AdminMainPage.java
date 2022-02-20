@@ -14,41 +14,42 @@ import com.example.hotel21.controller.common.LonginActivity;
 
 
 public class AdminMainPage extends AppCompatActivity {
-     TextView textView;
+    TextView userNameTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_mainpage);
-        textView = findViewById(R.id.NameofadminID_forMainPage);
+        userNameTextView = findViewById(R.id.NameofadminID_forMainPage);
         String data = getIntent().getStringExtra("user_name");
 
-        textView.setText(data);
-         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-         SharedPreferences.Editor editor ;
+        userNameTextView.setText(data);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor;
         editor = preferences.edit();
         editor.putString("user_name", data);
         editor.commit();
 
     }
 
-    public void addroomOnClik(View view) {
+    public void addRoomOnClick(View view) {
         Intent intent = new Intent(AdminMainPage.this, AdminManageEmployee.class);
         startActivity(intent);
     }
 
-    public void deleteroomOnClik(View view) {
+    public void deleteRoomOnClick(View view) {
         Intent intent = new Intent(AdminMainPage.this, ServicePageForAdmin.class);
         startActivity(intent);
     }
 
 
-    public void getroomOnClick(View view) {
-        Intent intent = new Intent(AdminMainPage.this, RoomMainAcivityForAdmin.class);
+    public void getRoomOnClick(View view) {
+        Intent intent = new Intent(AdminMainPage.this, RoomMainActivityForAdmin.class);
         startActivity(intent);
 
     }
 
-    public void LogoutONClik(View view) {
+    public void logoutOnClick(View view) {
 
         Intent intent = new Intent(AdminMainPage.this, LonginActivity.class);
         startActivity(intent);

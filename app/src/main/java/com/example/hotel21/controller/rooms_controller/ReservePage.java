@@ -124,7 +124,7 @@ public class ReservePage extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public void proceed(View view) {
+    public void proceed(View view) throws InterruptedException {
 /*
 i need to show the reservies that user have i the current time
  */
@@ -168,7 +168,13 @@ i need to show the reservies that user have i the current time
 
         Reserve reserve = new Reserve(room.getRoom_id(), user.getUser_id()
                 , startDate, endDate, false, totalPrice0);
-        Database.getInstance().addReservebyuser(reserve, ReservePage.this);
+        Database.getInstance().addReservebyuser(reserve, ReservePage.this,addedServices);
+
+
+
+           // Database.getInstance().setservicesbycustomer("2",String.valueOf(addedServices.get(0).getService_id()));
+
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

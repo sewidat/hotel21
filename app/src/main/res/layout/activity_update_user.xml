@@ -38,7 +38,7 @@
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@id/lock1"
                 android:gravity="center"
-                android:text="Personal"
+                android:text="@string/personal_user"
                 android:textColor="#616161" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -70,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@id/lock2"
                 android:gravity="center"
-                android:text="Security"/>
+                android:text="@string/security_user"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -101,7 +101,7 @@
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@id/lock3"
                 android:gravity="center"
-                android:text="Payment"/>
+                android:text="@string/payment_user"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

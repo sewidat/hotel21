@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_animation"
-    tools:context=".controller.AdminController.AdminaddEmployees"
+    tools:context=".controller.AdminController.AdminAddEmployee"
     tools:ignore="MissingDefaultResource">
 
     <RelativeLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="50dp"
             android:gravity="center"
-            android:text="New Employee"
+            android:text="@string/new_employee"
             android:textColor="@color/black"
             android:textSize="35dp"
             android:textStyle="bold">
@@ -35,7 +35,7 @@
             android:background="#30ffffff"
             android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="20dp"
-            android:hint="User Name"
+            android:hint="@string/user_name_forEmplyoee_byAdmin"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="@color/black" />
@@ -49,7 +49,7 @@
             android:background="#30ffffff"
             android:drawableLeft="@drawable/ic_baseline_info_24"
             android:drawablePadding="20dp"
-            android:hint="Password"
+            android:hint="@string/passwordForEmployeebyAdmin"
             android:inputType="textPassword"
             android:padding="20dp"
             android:textColorHint="@color/black" />
@@ -65,8 +65,8 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
             android:backgroundTint="@color/material_on_primary_emphasis_medium"
-            android:text="Add emplyoee"
-            android:onClick="NewEmployeeClik"
+            android:text="@string/add_emplyoee_btn"
+            android:onClick="newEmployeeClick"
             android:textColor="@color/black"></Button>
 
         <ListView

@@ -29,9 +29,7 @@ public class RoomsListViewForEmployee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms_list_view_for_employee);
         run();
-
     }
-
 
 
     public void run() {
@@ -42,14 +40,8 @@ public class RoomsListViewForEmployee extends AppCompatActivity {
                 () -> {
                     RoomFactory roomFactory = new RoomFactory();
                     IRoomDa iRoomDa = roomFactory.getModel();
-                    iRoomDa.getRoomsforEmployee(this,listView);
-
-
+                    iRoomDa.getRoomsforEmployee(this, listView);
 
                 });
-                }
-
-    public void updateRoomsbtnOnClick(View view) {
-
     }
 }

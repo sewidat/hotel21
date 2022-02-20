@@ -31,25 +31,24 @@ import java.util.Map;
 import com.example.hotel21.R;
 import com.example.hotel21.controller.AdminController.AddRoomsActivity;
 import com.example.hotel21.controller.AdminController.AdminRemoveEmployee;
-import com.example.hotel21.controller.AdminController.AdminaddEmployees;
-import com.example.hotel21.controller.AdminController.EmployeesListviewAdpater;
+import com.example.hotel21.controller.AdminController.AdminAddEmployee;
+import com.example.hotel21.controller.AdminController.EmployeesListviewAdapter;
 import com.example.hotel21.controller.AdminController.AdminMainPage;
 import com.example.hotel21.controller.AdminController.RoomManageAdapterE;
 import com.example.hotel21.controller.AdminController.RoomsListViewForEmployee;
 import com.example.hotel21.controller.AdminController.UpdateRoomInformations;
 import com.example.hotel21.controller.EmployeeController.EmployeeAdapter;
 import com.example.hotel21.controller.EmployeeController.EmployeeMainPage;
+import com.example.hotel21.controller.EmployeeController.EmployeeUpdateHisInformation;
 import com.example.hotel21.controller.EmployeeController.UpdateAdapter;
 import com.example.hotel21.controller.EmployeeController.UpdateReservitionEmp_Acitivty;
 import com.example.hotel21.controller.common.LonginActivity;
 import com.example.hotel21.controller.AdminController.ServicePageForAdmin;
 import com.example.hotel21.controller.AdminController.ServicesAdapter;
-import com.example.hotel21.controller.common.MainActivity;
 import com.example.hotel21.controller.common.SignUpActivity;
 import com.example.hotel21.controller.EmployeeController.EmployeeListViewItem;
 import com.example.hotel21.controller.rooms_controller.ReservePage;
 import com.example.hotel21.controller.ui.home.HomeFragment;
-import com.example.hotel21.controller.user_controller.UserDetailsUpdate;
 import com.example.hotel21.model.reserve.Reserve;
 import com.example.hotel21.model.room.Room;
 import com.example.hotel21.model.service.Service;
@@ -62,7 +61,7 @@ public class Database extends AppCompatActivity {
     EmployeeAdapter adapter;
     ServicesAdapter servicesAdapter;
     UpdateAdapter updateAdapter;
-    EmployeesListviewAdpater employeesListviewAdater;
+    EmployeesListviewAdapter employeesListviewAdater;
     RoomManageAdapterE roomManageAdapterE;
 
 //    public static ArrayList<Room> listRoom = new ArrayList<>();
@@ -105,7 +104,7 @@ public class Database extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> data = new HashMap<>();
-                data.put("user_id",String.valueOf(user.getUser_id()));
+                data.put("user_id", String.valueOf(user.getUser_id()));
                 data.put("user_name", user.getUser_name());
                 data.put("user_password", user.getUser_password());
                 data.put("first_name", user.getFirst_name());
@@ -277,6 +276,8 @@ public class Database extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(updateReservitionEmp_acitivty, "The reserves is done and the rooms available.", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
             }
         }, new Response.ErrorListener() {
             @Override
@@ -296,7 +297,7 @@ public class Database extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public static ArrayList<Service> services ;
+    public static ArrayList<Service> services;
 
     public static void getServices(AppCompatActivity appCompatActivity) {
         RequestQueue queue;
@@ -309,11 +310,11 @@ public class Database extends AppCompatActivity {
                 null, response -> {
             try {
                 for (int i = 0; i < response.length(); i++) {
-                        JSONObject obj = response.getJSONObject(i);
+                    JSONObject obj = response.getJSONObject(i);
                     tempServices.add(new Service(obj.getInt("service_id"), obj.getString("service_description"), obj.getInt("service_price")));
                 }
                 services = tempServices;
-            }catch (JSONException exception) {
+            } catch (JSONException exception) {
                 Log.d("Error", exception.toString());
             }
         }, error -> System.out.println(error.getMessage()));
@@ -354,14 +355,15 @@ public class Database extends AppCompatActivity {
     }
 
     public void setServicesToReserveDonebyemployee(String reserve_id, String service_id) {
+        System.out.println(reserve_id + "--_-_____" + service_id);
         String url = "http://10.0.2.2/hotel21/employee/setServiceToReserveDone.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                System.out.println(response);
                 if (response.contains("successfully")) {
                     Toast.makeText(EMP, "Update Done successfully.", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(EMP.getApplicationContext(), EmployeeMainPage.class);
-                    startActivity(intent);
+
                 } else {
                     Toast.makeText(EMP, "Invalid Update !!!", Toast.LENGTH_SHORT).show();
                 }
@@ -376,8 +378,8 @@ public class Database extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> data = new HashMap<>();
-                data.put("service_id", service_id);
-                data.put("reserve_id", reserve_id);
+                data.put("service_id", reserve_id);
+                data.put("reserve_id", service_id);
                 return data;
             }
         };
@@ -385,7 +387,6 @@ public class Database extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(EMP.getApplicationContext());
         requestQueue.add(stringRequest);
     }
-
 
 
     public void setServicesfromadmin(ServicePageForAdmin servicePageForAdmin, String Des, String price) {
@@ -483,7 +484,7 @@ public class Database extends AppCompatActivity {
     public void getReservitionForEmployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, ListView listView) {
         RequestQueue queue;
         queue = Volley.newRequestQueue(updateReservitionEmp_acitivty.getApplicationContext());
-        String url = "http://10.0.2.2/hotel21/employee/getReservtiondata.php";
+        String url = "http://10.0.2.2:80/hotel21/employee/getReservtiondata.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, response -> {
@@ -515,10 +516,8 @@ public class Database extends AppCompatActivity {
 
     }
 
-    public void Updatedatafromemployee(UpdateReservitionEmp_Acitivty updateReservitionEmp_acitivty, String userName, String Password,
-                                       String visacard, String emaill, String phoneN, String user_age) {
-
-        System.out.println(userName + "this is username");
+    public void Updatedatafromemployee(EmployeeUpdateHisInformation updateReservitionEmp_acitivty, String userName, String Password, String firstname, String lastname,
+                                       String visacard, String emaill, String phoneN, String usergender, String user_age) {
 
         RequestQueue requestQueue = Volley.newRequestQueue(updateReservitionEmp_acitivty.getApplicationContext());
 
@@ -527,12 +526,10 @@ public class Database extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                System.out.println(response + "-------------");
-                System.out.println(response.equalsIgnoreCase("success") + "////////////////");
 
                 if (response.contains("success")) {
                     System.out.println("on if statment");
-                    Toast.makeText(updateReservitionEmp_acitivty, "valid log in", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(updateReservitionEmp_acitivty, "valid Update", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(updateReservitionEmp_acitivty, LonginActivity.class);
                     startActivity(intent);
                     finish();
@@ -553,10 +550,13 @@ public class Database extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> data = new HashMap<>();
                 data.put("user_name", userName);
+                data.put("first_name", firstname);
+                data.put("last_name", lastname);
                 data.put("user_password", Password);
                 data.put("visa_number", visacard);
                 data.put("user_email", emaill);
                 data.put("user_phone", phoneN);
+                data.put("user_gender", usergender);
                 data.put("user_age", user_age);
 
                 return data;
@@ -568,7 +568,7 @@ public class Database extends AppCompatActivity {
     }
 
 
-    public void AdmingAddEmployee(AdminaddEmployees adminaddEmployees, String userName, String Password) {
+    public void AdmingAddEmployee(AdminAddEmployee adminaddEmployees, String userName, String Password) {
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(adminaddEmployees.getApplicationContext());
@@ -617,7 +617,7 @@ public class Database extends AppCompatActivity {
         ADE = adminRemoveEmployee;
         RequestQueue queue;
         queue = Volley.newRequestQueue(adminRemoveEmployee.getApplicationContext());
-        String url = "http://10.0.2.2/hotel21/getEmployees.php";
+        String url = "http://10.0.2.2:80/hotel21/getEmployees.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, response -> {
@@ -635,7 +635,7 @@ public class Database extends AppCompatActivity {
                 }
             }
 
-            employeesListviewAdater = new EmployeesListviewAdpater(adminRemoveEmployee.getApplicationContext(), R.layout.activity_employees_listview_adpater, items);
+            employeesListviewAdater = new EmployeesListviewAdapter(adminRemoveEmployee.getApplicationContext(), R.layout.activity_employees_listview_adpater, items);
             listview.setAdapter(employeesListviewAdater);
 
         }, error -> System.out.println(error.getMessage()));
@@ -690,7 +690,7 @@ public class Database extends AppCompatActivity {
     public void getRoomsForAdmin(RoomsListViewForEmployee roomsListViewForEmployee, ListView listView) {
         RequestQueue queue;
         queue = Volley.newRequestQueue(roomsListViewForEmployee.getApplicationContext());
-        String url = "http://10.0.2.2/hotel21/getRoomsForAdmin.php";
+        String url = "http://10.0.2.2:80/hotel21/getRoomsForAdmin.php";
         ArrayList<Room> arrayList = new ArrayList<>();
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
@@ -719,7 +719,7 @@ public class Database extends AppCompatActivity {
 
     public void updateRooms(Room user, UpdateRoomInformations updateRoomInformations) {
         System.out.println(user.getFloor_number() + "------------");
-        String url = "http://10.0.2.2/hotel21/updateRoom.php";
+        String url = "http://10.0.2.2:80/hotel21/updateRoom.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -762,7 +762,7 @@ public class Database extends AppCompatActivity {
 
         RequestQueue queue;
         queue = Volley.newRequestQueue(activity.getApplicationContext());
-        String url = "http://10.0.2.2/hotel21/getroomforuser.php";
+        String url = "http://10.0.2.2:80/hotel21/getroomforuser.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, response -> {
@@ -772,7 +772,7 @@ public class Database extends AppCompatActivity {
                     System.out.println(response);
 
                     JSONObject obj = response.getJSONObject(i);
-                    listRoom.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"), obj.getInt("day_price"), obj.getString("room_information"), obj.getInt("number_of_bed")));
+                    listRoom.add(new Room(obj.getInt("room_id"), obj.getInt("floor_number"), obj.getString("type"), obj.getInt("day_price"), obj.getString("room_information"), obj.getInt("number_of_bed"), obj.getString("image_url")));
 
                 } catch (JSONException exception) {
                     Log.d("Error", exception.toString());
@@ -788,6 +788,7 @@ public class Database extends AppCompatActivity {
         queue.add(request);
 
     }
+
     public List<Room> listRoomsforuser(Context context) throws InterruptedException {
 //        listRoom.clear();
         ArrayList<Room> listRoom = new ArrayList<>();
@@ -795,7 +796,7 @@ public class Database extends AppCompatActivity {
 
         RequestQueue queue;
         queue = Volley.newRequestQueue(context);
-        String url = "http://10.0.2.2/hotel21/getroomforuser.php";
+        String url = "http://10.0.2.2:80/hotel21/getroomforuser.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url,
                 null, response -> {
@@ -818,6 +819,7 @@ public class Database extends AppCompatActivity {
 
         return listRoom;
     }
+
     public ArrayList<Room> roomlistforemployee(HomeFragment homeFragment) {
 //        ArrayList<Room> list  = listRoom;
 //        System.out.println("hello meso you are inside  " + listRoom );
@@ -827,9 +829,11 @@ public class Database extends AppCompatActivity {
         return null;
     }
 
+    ReservePage reserve_Page;
+    public static String reserve_id;
 
-
-    public void addReservebyuser(Reserve reserve , ReservePage reservePage){
+    public void addReservebyuser(Reserve reserve, ReservePage reservePage, ArrayList<Service> listRs) {
+        reserve_Page = reservePage;
 
 
         RequestQueue requestQueue = Volley.newRequestQueue(reservePage.getApplicationContext());
@@ -839,15 +843,13 @@ public class Database extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                System.out.println(response + "--------");
 
-                if (response.contains("done")) {
-                    System.out.println(response + "  insdie ");
-                    Toast.makeText(reservePage, "valid Reserve", Toast.LENGTH_SHORT).show();
 
-                } else if (response.contains("error")) {
-                    Toast.makeText(reservePage, "Invalid log in", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < listRs.size(); i++) {
+                    setservicesbycustomer(response, String.valueOf(listRs.get(i).getService_id()));
                 }
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -859,7 +861,7 @@ public class Database extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> data = new HashMap<>();
-                data.put("user_id",String.valueOf(reserve.getCustomer_id()));
+                data.put("user_id", String.valueOf(reserve.getCustomer_id()));
                 data.put("room_id", String.valueOf(reserve.getRoom_id()));
                 data.put("start_time", String.valueOf(reserve.getStart_time()));
                 data.put("end_time", String.valueOf(reserve.getEnd_time()));
@@ -873,6 +875,42 @@ public class Database extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
+
+    public void setservicesbycustomer(String reserveID, String serviceID) {
+        String url = "http://10.0.2.2:80/hotel21/setservicesbycustomer.php";
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println("response inside set " + response);
+                if (response.contains("6")) {
+                    Toast.makeText(reserve_Page, "Update Done successfully.", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    if (response.contains("error"))
+                        Toast.makeText(reserve_Page, "Invalid Update !!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(reserve_Page, error.toString().trim(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> data = new HashMap<>();
+                data.put("service_id", serviceID);
+                data.put("reserve_id", reserveID);
+                return data;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(reserve_Page.getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
+
 }
 
 

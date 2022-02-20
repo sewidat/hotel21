@@ -28,64 +28,67 @@ import com.example.hotel21.model.reserve.ReserveFactory;
 
 import java.util.ArrayList;
 
-public class EmployeeAdapter  extends ArrayAdapter<EmployeeListViewItem>   {
-    private static final  String  TAG  = "EmployeeAdapter" ;
+public class EmployeeAdapter extends ArrayAdapter<EmployeeListViewItem> {
+    private static final String TAG = "EmployeeAdapter";
     private Context contextfood;
     int Resource;
 
+    ArrayList<EmployeeListViewItem> list;
 
     public EmployeeAdapter(Context context, int resource, ArrayList<EmployeeListViewItem> objects) {
         super(context, resource, objects);
         this.contextfood = context;
         this.Resource = resource;
+        this.list = objects;
     }
 
 //    Class employeeMainPage = EmployeeMainPage.class;
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent ) {
-        int reserveID  = getItem(position).getReserveID();
-        int serviceID  = getItem(position).getServiceID();
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        int reserveID = getItem(position).getReserveID();
+        int serviceID = getItem(position).getServiceID();
         int room_id = getItem(position).getRoom_id();
         String service_description = getItem(position).getservice_description();
-        LayoutInflater inflater  = LayoutInflater.from(contextfood);
+        LayoutInflater inflater = LayoutInflater.from(contextfood);
 
 
-        convertView = inflater.inflate(Resource,parent,false);
-        TextView tv1 = (TextView)   convertView.findViewById(R.id.textview1);
-        TextView tv2 = (TextView)   convertView.findViewById(R.id.textview2);
-        Button tv3 = (Button)   convertView.findViewById(R.id.btnmalek);
-        TextView tv4 = (TextView)   convertView.findViewById(R.id.room_idtextview);
-        TextView tv5 = (TextView)   convertView.findViewById(R.id.service_destextview);
+        convertView = inflater.inflate(Resource, parent, false);
+        TextView tv1 = (TextView) convertView.findViewById(R.id.textview1);
+        TextView tv2 = (TextView) convertView.findViewById(R.id.textview2);
+        Button tv3 = (Button) convertView.findViewById(R.id.btnmalek);
+        TextView tv4 = (TextView) convertView.findViewById(R.id.room_idtextview);
+        TextView tv5 = (TextView) convertView.findViewById(R.id.service_destextview);
 
-        tv1.setText(reserveID+"");
-        tv2.setText(serviceID+"");
-        tv3.setText(reserveID+" "+serviceID);
-        tv4.setText(room_id+"");
-        tv5.setText(service_description+"");
+        tv1.setText(reserveID + "");
+        tv2.setText(serviceID + "");
+        tv3.setText(reserveID + " " + serviceID);
+        tv4.setText(room_id + "");
+        tv5.setText(service_description + "");
         tv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String [] ids = tv3.getText().toString().split(" ");
+                String[] ids = tv3.getText().toString().split(" ");
                 int reserveId = Integer.parseInt(ids[0]);
                 int serviceId = Integer.parseInt(ids[1]);
                 System.out.println(reserveId + "---" + serviceId);
                 ReserveFactory reserveFactory = new ReserveFactory();
                 IReserveDa iReserveDa = reserveFactory.getModel();
-                iReserveDa.setReservesToServiceDone(String.valueOf(serviceId),String.valueOf(reserveId));
+                iReserveDa.setReservesToServiceDone(String.valueOf(serviceId), String.valueOf(reserveId));
+                list.remove(position);
+                notifyDataSetChanged();
             }
+
+
         });
 
 
-
-
-        return  convertView;
+        return convertView;
     }
 
     @Override
-    public void notifyDataSetChanged()
-    {
+    public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
     }
 }

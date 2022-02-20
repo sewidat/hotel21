@@ -42,17 +42,17 @@ public class ServicePageForAdmin extends AppCompatActivity {
 
     }
 
-    public void addservicesonbtn(View view) {
-        String servicedescription = service_description.getText().toString();
-        String serviceprice = service_price.getText().toString();
+    public void addServicesOnBtn(View view) {
+        String serviceDescription = service_description.getText().toString();
+        String servicePrice = service_price.getText().toString();
         ServiceFactory serviceFactory = new ServiceFactory();
         IServiceDa iServiceDa = serviceFactory.getModel();
-        iServiceDa.addservicesfromadmin(ServicePageForAdmin.this,servicedescription,serviceprice);
+        iServiceDa.addservicesfromadmin(ServicePageForAdmin.this,serviceDescription,servicePrice);
 
     }
 
 
-    public void RefreshListviewforadminbtn(View view) {
+    public void refreshListViewForAdminBtn(View view) {
         Intent intent = new Intent(ServicePageForAdmin.this, ServicePageForAdmin.class);
         startActivity(intent);
 

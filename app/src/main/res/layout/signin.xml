@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_animation"
-    tools:context=".controller.SignUpActivity"
+    tools:context=".controller.common.SignUpActivity"
     tools:ignore="MissingDefaultResource">
 
      <RelativeLayout
@@ -135,7 +135,6 @@
               android:drawableLeft="@drawable/ic_baseline_person_24"
               android:drawablePadding="20dp"
               android:hint="Age"
-              android:inputType="textPassword"
               android:padding="20dp"
               android:textColorHint="@color/black" />
 

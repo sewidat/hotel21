@@ -1,9 +1,6 @@
 package com.example.hotel21.controller.AdminController;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotel21.R;
-import com.example.hotel21.controller.AdminController.ServicePageForAdmin;
-import com.example.hotel21.controller.EmployeeController.EmployeeListViewItem;
-import com.example.hotel21.controller.EmployeeController.EmployeeMainPage;
-import com.example.hotel21.controller.common.LonginActivity;
-import com.example.hotel21.controller.common.MainScreen;
-import com.example.hotel21.model.database.Database;
-import com.example.hotel21.model.reserve.IReserveDa;
-import com.example.hotel21.model.reserve.ReserveFactory;
 import com.example.hotel21.model.user.IUserDa;
 import com.example.hotel21.model.user.User;
 import com.example.hotel21.model.user.UserFactory;
@@ -31,15 +19,15 @@ import com.example.hotel21.model.user.UserFactory;
 
 import java.util.ArrayList;
 
- public class EmployeesListviewAdpater extends ArrayAdapter<User>   {
-    private static final  String  TAG  = "EmployeesListviewAdpater" ;
-    private Context contextfood;
+ public class EmployeesListviewAdapter extends ArrayAdapter<User>   {
+    private static final  String  TAG  = "EmployeesListviewAdapter" ;
+    private Context context;
     int Resource;
 
 
-    public EmployeesListviewAdpater(Context context, int resource, ArrayList<User> objects) {
+    public EmployeesListviewAdapter(Context context, int resource, ArrayList<User> objects) {
         super(context, resource, objects);
-        this.contextfood = context;
+        this.context = context;
         this.Resource = resource;
     }
 
@@ -51,7 +39,7 @@ import java.util.ArrayList;
         int user_id  = getItem(position).getUser_id();
         String first_name  = getItem(position).getFirst_name();
         String last_name = getItem(position).getLast_name();
-        LayoutInflater inflater  = LayoutInflater.from(contextfood);
+        LayoutInflater inflater  = LayoutInflater.from(context);
 
 
         convertView = inflater.inflate(Resource,parent,false);
@@ -74,14 +62,8 @@ import java.util.ArrayList;
                 UserFactory userFactory = new UserFactory();
                 IUserDa iUserDa = userFactory.getModel();
                 iUserDa.adminRemoveEmployee(String.valueOf(user_id));
-
-
-
             }
         });
-
-
-
 
         return  convertView;
     }

@@ -35,7 +35,6 @@
             android:id="@+id/btnmalek"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:onClick="OnclickForDoneReserve"
             android:textSize="0sp"
 
             />

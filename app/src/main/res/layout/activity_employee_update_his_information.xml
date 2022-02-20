@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_animation"
-    tools:context=".controller.AdminController.UpdateRoomInformations"
+    tools:context=".controller.EmployeeController.EmployeeUpdateHisInformation"
     tools:ignore="MissingDefaultResource">
 
     <RelativeLayout
@@ -19,186 +19,152 @@
             android:layout_height="wrap_content"
             android:layout_margin="50dp"
             android:gravity="center"
-            android:text="@string/update_room_informations"
+            android:text="@string/update_personal_data"
             android:textColor="@color/black"
-            android:textSize="25dp"
+            android:textSize="35dp"
             android:textStyle="bold">
-
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/room_id_byAdmin"
-            android:layout_above="@id/Up_roomid"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-
-            >
 
         </TextView>
 
         <EditText
-            android:id="@+id/Up_roomid"
+            android:id="@+id/Username_UE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/signinPage"
             android:layout_margin="15dp"
             android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="20dp"
-            android:editable="false"
+            android:focusable="false"
+            android:hint="@string/user_name_Updatabyemployee"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="@color/black" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/floor_number_byAdmin"
-            android:id="@+id/textview_roompass"
-            android:layout_below="@+id/Up_roomid"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-
-            >
-
-        </TextView>
-
         <EditText
-            android:id="@+id/Up_floornumber"
+            android:id="@+id/Password_UE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview_roompass"
+            android:layout_below="@id/Username_UE"
             android:layout_margin="15dp"
             android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_info_24"
             android:drawablePadding="20dp"
+            android:hint="@string/password_UpdateByEmployee"
+            android:inputType="textPassword"
             android:padding="20dp"
             android:textColorHint="@color/black" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/type_byAdmin"
-            android:id="@+id/textview_roomtype"
-            android:layout_below="@+id/Up_floornumber"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-
-            >
-
-        </TextView>
-
         <EditText
-            android:id="@+id/Up_type"
+            android:id="@+id/firstName_UE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview_roomtype"
+            android:layout_below="@id/Password_UE"
             android:layout_margin="15dp"
             android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="20dp"
+            android:hint="@string/first_name_UpByEmployee"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="@color/black" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/room_price_byAdmin"
-            android:id="@+id/textview_roomprice"
-            android:layout_below="@+id/Up_type"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-
-            >
-
-        </TextView>
-
-
-
         <EditText
-            android:id="@+id/Up_roomprice"
+            android:id="@+id/LastName_UE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview_roomprice"
+            android:layout_below="@id/firstName_UE"
             android:layout_margin="15dp"
             android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="20dp"
+            android:hint="@string/last_name_UpByEmployee"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="@color/black" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/number_of_beds_byAdmin"
-            android:id="@+id/textview_numberofbeds"
-            android:layout_below="@+id/Up_roomprice"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-
-            >
-
-        </TextView>
-
         <EditText
-            android:id="@+id/Up_numberofbeds"
+            android:id="@+id/Email_UE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview_numberofbeds"
+            android:layout_below="@id/LastName_UE"
             android:layout_margin="15dp"
             android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
             android:drawablePadding="20dp"
-            android:hint="E-mail"
+            android:hint="@string/e_mail_UpByEmployee"
             android:inputType="text"
             android:padding="20dp"
             android:textColorHint="@color/black" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/room_information_byAdmin"
-            android:id="@+id/textview_roominfo"
-            android:layout_below="@+id/Up_numberofbeds"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-
-            >
-
-        </TextView>
-
-
-
         <EditText
-            android:id="@+id/Up_roomINFO"
+            android:id="@+id/phone_UE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview_roominfo"
+            android:layout_below="@id/Email_UE"
             android:layout_margin="15dp"
             android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_phone_24"
             android:drawablePadding="20dp"
+            android:hint="@string/phone_UpByEmployee"
             android:inputType="number"
             android:padding="20dp"
             android:textColorHint="@color/black" />
 
+        <EditText
+            android:id="@+id/Gender_UE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone_UE"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"
+            android:hint="@string/gender_UpByEmployee"
+            android:inputType="text"
+            android:padding="20dp"
+            android:textColorHint="@color/black"
+            tools:ignore="DuplicateIds" />
+
+        <EditText
+            android:id="@+id/Age_UE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Gender_UE"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="20dp"
+            android:hint="@string/age_UpByEmployee"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/visanumber_UE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Age_UE"
+            android:layout_margin="15dp"
+            android:background="#30ffffff"
+            android:drawableLeft="@drawable/ic_baseline_payment_24"
+            android:drawablePadding="20dp"
+            android:hint="@string/visa_number_UpByEmployee"
+            android:inputType="phone"
+            android:padding="20dp"
+            android:textColorHint="@color/black" />
 
 
         <Button
-            android:id="@+id/signupbutton"
+            android:id="@+id/signupbutton_UE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Up_roomINFO"
+            android:layout_below="@id/visanumber_UE"
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
             android:backgroundTint="@color/material_on_primary_emphasis_medium"
-            android:text="@string/update_room_byAdmin"
-            android:onClick="NewAccountonClik"
+            android:text="@string/sign_up_UpByEmployee"
+            android:onClick="updatePersonalInformation"
             android:textColor="@color/black"></Button>
     </RelativeLayout>
 

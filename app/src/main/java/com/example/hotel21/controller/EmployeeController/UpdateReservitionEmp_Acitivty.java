@@ -43,16 +43,14 @@ public class UpdateReservitionEmp_Acitivty extends AppCompatActivity {
     }
 
     public void Upbackbtn(View view) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String data = preferences.getString("user_name", "");
-        UserFactory userFactory = new UserFactory() ;
-        IUserDa iUserDa = userFactory.getModel();
-        iUserDa.Updatedatafromemployee(this, data,"mohammad12345","1231","malikissa@gmail.com","0597615538","210");
+        Intent intent = new Intent(UpdateReservitionEmp_Acitivty.this,EmployeeMainPage.class);
+        startActivity(intent);
     }
 
     public void Upreservebtn(View view) {
         ReserveFactory reserveFactory = new ReserveFactory();
         IReserveDa  iReserveDa =  reserveFactory.getModel();
         iReserveDa.setAllDoneReservesDone(UpdateReservitionEmp_Acitivty.this);
+
     }
 }
